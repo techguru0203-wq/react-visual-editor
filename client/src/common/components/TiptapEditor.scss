@@ -1,0 +1,94 @@
+.editor-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #fff;
+  font-size: 14px;
+  line-height: 1.5715;
+  position: relative;
+}
+
+.editor-scroll-wrapper {
+  flex: 1; // Take remaining space below toolbar
+  overflow-y: auto;
+  padding: 10px;
+  // border: 1px solid lightgray;// #5345f3;
+  border-radius: 5px;
+}
+
+.editor-content {
+  min-height: 200px;
+  box-sizing: border-box;
+}
+
+.ProseMirror {
+  min-height: 32px;
+  outline: none;
+  font-size: 14px;
+  line-height: 1.5715;
+  padding-top: 4px;
+  padding-left: 10px;/* Ensure content padding */
+  --mermaid-zoom: 1;
+  
+  div.mermaid {
+    transform: scale(var(--mermaid-zoom));
+    transform-origin: top left;
+    margin-bottom: calc((var(--mermaid-zoom) - 1) * 100px);
+    display: block;
+  }
+}
+
+.ProseMirror p {
+  margin: 0;
+}
+
+.toolbar {
+  display: flex;
+  position: sticky;
+  top: 0;
+  z-index: 100; /* Keep in front */
+  justify-content: start;
+  gap: 5px;
+  margin-bottom: 10px;
+  background: #fff; /* Background color to cover content */
+  padding: 10px 5px;
+  border-bottom: 1px solid #d9d9d9;
+  flex-wrap: wrap;
+}
+
+.tiptap p.is-editor-empty:first-child::before {
+  color: #adb5bd;
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+
+.tiptap-table th,
+.tiptap-table td {
+  border: 1px solid black;
+  padding: 8px;
+}
+
+.tiptap-table {
+  border-collapse: collapse;
+  margin: 8px;
+}
+
+.selection {
+  border-radius: 1px;
+  background: rgba(35, 131, 226, 0.28);
+  box-shadow: 0 0 0 1.2px rgba(35, 131, 226, 0.28);
+}
+
+.template-btn{
+  max-width: 220px;
+  span{
+    &:last-child{
+      width: calc(100% - 20px);
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+}

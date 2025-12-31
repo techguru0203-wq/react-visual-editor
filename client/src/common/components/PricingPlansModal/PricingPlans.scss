@@ -1,0 +1,81 @@
+.plans-container {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 20px;
+  justify-content: center;
+  padding-bottom: 24px;
+
+  > div {
+    border-right: 1px solid #f1f3f9;
+    margin: 0 10px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid lightgray;
+    position: relative;
+    width: calc(33% - 20px);
+    @media screen and (max-width: 1023px) {
+      width: calc(50% - 20px);
+    }
+    @media screen and (max-width: 767px) {
+      width: 100%;
+      margin: 0;
+    }
+
+    .heading{
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .strike-price{
+      font-size: 14px;
+      font-weight: 600;
+      margin-right: 4px;
+    }
+
+    .price{
+      font-size: 16px;
+      font-weight: 700;
+      color:#5570F1;
+      margin-left: 5;
+    }
+
+    @media screen and (max-width: 374px) {
+      .heading{
+        font-size: 15px;
+      }
+      .strike-price{
+        font-size: 12px;
+      }
+      .price{
+        font-size: 14px;
+      }
+    }
+  }
+
+  .activePlan {
+    border: 2px solid #5345F3;
+    box-shadow: 0 0 0 2px rgba(83, 69, 243, 0.1);
+    background-color: #f8f9ff;
+  }  
+}
+
+.pricing-plans-footer{
+  @media screen and (max-width: 949px) {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .buy-credit-main{
+    .ant-select{
+      width: 160px;
+    }
+    @media screen and (max-width: 575px) {
+      gap: 6px;
+      >div{
+        gap: 6px;
+        .ant-select{
+          width: 122px;
+        }
+      }
+    }
+  }
+}

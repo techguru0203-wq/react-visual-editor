@@ -1,0 +1,398 @@
+.vercel-logs-modal {
+  .runtime-logs-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    background-color: #1a1a1a;
+    border-radius: 4px;
+    margin-bottom: 12px;
+
+    .status-section {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      .status-label {
+        color: #999;
+        font-size: 13px;
+      }
+
+      .status-value {
+        font-weight: 600;
+        font-size: 13px;
+        padding: 2px 8px;
+        border-radius: 3px;
+        text-transform: capitalize;
+
+        &.status-idle {
+          color: #8c8c8c;
+          background-color: rgba(140, 140, 140, 0.1);
+        }
+
+        &.status-connecting {
+          color: #1890ff;
+          background-color: rgba(24, 144, 255, 0.1);
+        }
+
+        &.status-connected {
+          color: #52c41a;
+          background-color: rgba(82, 196, 26, 0.1);
+        }
+
+        &.status-running {
+          color: #52c41a;
+          background-color: rgba(82, 196, 26, 0.1);
+          animation: pulse 2s ease-in-out infinite;
+        }
+
+        &.status-stopped {
+          color: #8c8c8c;
+          background-color: rgba(140, 140, 140, 0.1);
+        }
+
+        &.status-ended {
+          color: #faad14;
+          background-color: rgba(250, 173, 20, 0.1);
+        }
+
+        &.status-error {
+          color: #ff4d4f;
+          background-color: rgba(255, 77, 79, 0.1);
+        }
+      }
+    }
+
+    .environment-section {
+      display: flex;
+      align-items: center;
+      
+      .ant-radio-group {
+        .ant-radio-button-wrapper {
+          background-color: #262626;
+          border-color: #434343;
+          color: #d9d9d9;
+          
+          &:hover {
+            color: #fff;
+            border-color: #5345F3;
+          }
+          
+          &.ant-radio-button-wrapper-checked {
+            background-color: #5345F3;
+            border-color: #5345F3;
+            color: #fff;
+            
+            &:hover {
+              background-color: #6b5aff;
+              border-color: #6b5aff;
+            }
+          }
+          
+          &.ant-radio-button-wrapper-disabled {
+            background-color: #1a1a1a;
+            border-color: #2a2a2a;
+            color: #595959;
+            cursor: not-allowed;
+          }
+        }
+      }
+    }
+
+    .button-section {
+      display: flex;
+      gap: 8px;
+      
+      .ant-btn {
+        &:disabled {
+          background-color: #262626;
+          border-color: #434343;
+          color: #8c8c8c;
+          
+          .anticon {
+            color: #8c8c8c;
+          }
+        }
+      }
+    }
+  }
+
+  @keyframes pulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.6;
+    }
+  }
+
+  .logs-container {
+    max-height: 600px;
+    overflow-y: auto;
+    padding: 16px;
+    background-color: #1a1a1a;
+    border-radius: 4px;
+    font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+
+    &.vercel-style {
+      padding: 0;
+      background-color: #0d0d0d;
+
+      .log-line {
+        padding: 8px 16px;
+        line-height: 1.5;
+        font-size: 13px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        border-left: 3px solid transparent;
+        transition: all 0.1s ease;
+
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.03);
+        }
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        // Highlight lines with warnings
+        &.log-warn {
+          border-left-color: #fbbf24;
+          background-color: rgba(251, 191, 36, 0.03);
+
+          &:hover {
+            background-color: rgba(251, 191, 36, 0.06);
+          }
+        }
+
+        // Highlight lines with errors
+        &.log-error {
+          border-left-color: #f87171;
+          background-color: rgba(248, 113, 113, 0.05);
+
+          &:hover {
+            background-color: rgba(248, 113, 113, 0.08);
+          }
+        }
+
+        .log-header {
+          display: flex;
+          align-items: baseline;
+          gap: 8px;
+          margin-bottom: 4px;
+          flex-wrap: wrap;
+        }
+
+        .log-timestamp {
+          color: #9ca3af;
+          font-size: 12px;
+          user-select: none;
+          font-weight: 500;
+        }
+
+        .log-level {
+          font-size: 10px;
+          font-weight: 700;
+          text-transform: uppercase;
+          padding: 2px 6px;
+          border-radius: 3px;
+          user-select: none;
+
+          &.info {
+            color: #60a5fa;
+            background-color: rgba(96, 165, 250, 0.15);
+          }
+
+          &.warning {
+            color: #fbbf24;
+            background-color: rgba(251, 191, 36, 0.15);
+          }
+
+          &.error {
+            color: #f87171;
+            background-color: rgba(248, 113, 113, 0.15);
+          }
+
+          &.debug {
+            color: #a78bfa;
+            background-color: rgba(167, 139, 250, 0.15);
+          }
+        }
+
+        .log-source {
+          color: #9ca3af;
+          font-size: 11px;
+          user-select: none;
+        }
+
+        .log-content-text {
+          color: #f3f4f6;
+          white-space: pre-wrap;
+          word-break: break-word;
+          margin: 4px 0;
+          font-size: 13px;
+          line-height: 1.6;
+          
+          // Support for different log types
+          &.warn {
+            color: #fbbf24;
+            font-weight: 500;
+          }
+
+          &.error {
+            color: #f87171;
+            font-weight: 600;
+          }
+
+          &.success {
+            color: #34d399;
+          }
+        }
+
+        .log-meta {
+          color: #6b7280;
+          font-size: 11px;
+          margin-top: 4px;
+          user-select: none;
+        }
+      }
+    }
+
+    // Legacy style for old log entries
+    .log-entry {
+      margin-bottom: 12px;
+      padding: 12px 16px;
+      background-color: #1a1a1a;
+      border-radius: 4px;
+      border-left: 3px solid #333;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background-color: #222;
+        border-left-color: #52c41a;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      .log-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 8px;
+        flex-wrap: wrap;
+
+        .log-time {
+          font-size: 12px;
+          color: #999;
+          font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
+        }
+
+        .log-type,
+        .log-level {
+          font-size: 11px;
+          font-weight: 600;
+          text-transform: uppercase;
+          padding: 2px 8px;
+          border-radius: 3px;
+          background-color: rgba(82, 196, 26, 0.15);
+        }
+
+        .log-source {
+          font-size: 11px;
+          color: #999;
+          padding: 2px 6px;
+          background-color: rgba(255, 255, 255, 0.05);
+          border-radius: 3px;
+        }
+      }
+
+      .log-content {
+        margin-top: 8px;
+      }
+
+      .log-text {
+        margin: 0;
+        padding: 8px;
+        color: #e8e8e8;
+        font-size: 13px;
+        line-height: 1.6;
+        font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 3px;
+        overflow-x: auto;
+        white-space: pre-wrap;
+        word-break: break-word;
+      }
+
+      .log-info,
+      .log-request-info {
+        margin-top: 8px;
+        font-size: 12px;
+        color: #999;
+        font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
+      }
+    }
+  }
+
+  .logs-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    gap: 16px;
+
+    div {
+      color: #d1d5db;
+      font-size: 14px;
+    }
+  }
+
+  .ant-empty {
+    padding: 60px 20px;
+    
+    .ant-empty-description {
+      color: #d1d5db;
+      font-size: 14px;
+    }
+  }
+
+  .ant-tabs {
+    .ant-tabs-nav {
+      margin-bottom: 16px;
+      
+      .ant-tabs-tab {
+        .ant-tabs-tab-btn {
+          color: #8B8D97;
+          font-size: 14px;
+        }
+        
+        &:hover {
+          .ant-tabs-tab-btn {
+            color: #5345F3;
+          }
+        }
+        
+        &.ant-tabs-tab-active {
+          .ant-tabs-tab-btn {
+            color: #5345F3;
+            font-weight: 600;
+          }
+        }
+      }
+      
+      .ant-tabs-ink-bar {
+        background-color: #5345F3 !important;
+      }
+    }
+    
+    .ant-tabs-content {
+      background-color: #1a1a1a;
+      border-radius: 4px;
+      padding: 12px;
+    }
+  }
+}
+

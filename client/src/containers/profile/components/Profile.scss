@@ -1,0 +1,31 @@
+.profile-form {
+  max-width: 900px;
+
+  .ant-btn-primary {
+    min-width: 100px;
+  }
+
+  .user-profile-form{
+    .ant-form-item{
+      @media screen and (max-width: 575px) {
+        margin-bottom: 16px;
+
+        .ant-btn-primary{
+          margin-top: 8px;
+        }
+      }
+  
+      .ant-form-item-label{
+        padding: 0;
+      }
+    }
+  }
+}
+
+.user-card {
+  padding: 5px;
+
+  .ant-card-meta-title {
+    margin-bottom: 0 !important;
+  }
+}

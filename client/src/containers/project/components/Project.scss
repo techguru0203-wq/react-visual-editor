@@ -1,0 +1,19 @@
+.project-list {
+  width: 100%;
+
+  .ant-empty-normal {
+    margin-block: 0;
+  }
+
+  td {
+    cursor: pointer;
+  }
+  
+  td.ant-table-cell  {
+    padding: 5px 16px 0px !important;
+  };
+
+  .ant-badge-status-text {
+    font-size: 11px !important;
+  }
+}

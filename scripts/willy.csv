@@ -1,0 +1,120 @@
+organization_id,title,content,url
+willyCompany,Project Willy: User and Team Structure,"Project Willy: User and Team Structure
+After considering things overnight, I’d like to propose the following structure for user and team
+information
+
+User Information Storage
+1. The only user information stored in Cognito will be email and security information.
+Everything else will be stored in our own User table:
+a. userId - reference to the ID from Cognito
+b. Email - leaving this so we can search in future (but it is double-stored with
+Cognito)
+c. userName
+d. firstName
+e. lastName
+f. Specialty
+g. Picture - eventually
+2. Only email is required to add the user to Cognito. When the user logs in, if they have not
+filled in the rest of the information, they will be required to do so in order to continue.
+3. When you invite a new user from the UI, we will generate a new Cognito account with
+just their email and a temporary password. We will customize the email they receive to
+indicate next steps. They will need to login from there.
+a. If the user already exists but in another organization we will need to invite them to
+join the new one. This is a flow that will need to be worked out
+4. I am suggesting we leave the sign-up form turned off on the site for now, but we can turn
+this on later with an invitation code (or open to the public when we get there).
+Realistically this would be more about starting a new organization than signing up a new
+user within one, so I think the flow will be a bit different here.
+5. We will update the Users model in our system to not store any of the information from
+Cognito. This means removing the following fields: password.
+6. If in future we want to move more data into Cognito, we can do so and keep our
+server-side APIs the same (the server can talk to Cognito if needed)
+
+Organizations and Teams
+1. Organizations will represent the top level(s) of our projects/users tree. A user can belong
+to more than one organization, but projects cannot
+2. We will have a new model to represent users in an organization, called OrganizationUser
+
+a. id - unique id for this user/organization combo. This is what we will reference
+from projects, etc.
+b. cognitoUserId - same as Cognito - we will use this when we need to look up
+information from Cognito or send emails
+c. organizationId - link to Organization model / table
+d. department
+e. Role - refers to the user’s role at the organization level - for example ADMIN
+means they administer the organization and can do things like changing tiers.
+Team roles are treated separately (see below)
+f. Velocity
+g. Status - lets us disable a user within an organization while preserving history
+7. Within an organization, we will have a tree of Teams. Each team can contain other
+sub-teams and projects. The Team and UserTeam models will be changed as follows:
+a. Add a parentTeamId field to the Team model. This field can be null, and will
+determine where the team fits in the tree. If the parent is null, it will be a direct
+child of the organization
+b. The userId field in UserTeam will be changed to point to the OrganizationUser
+model
+c. Add a role to the UserTeam table to indicate the user’s role within that team. We
+will want to have some logical rules around this, and may want to follow some
+form of RACI/DACI by team (or make this configurable by organization). This role
+is purely for the team itself - for example a user may be responsible for writing /
+editing the weekly reports for a team
+8. Logically, when we are working with teams, we should treat parent teams as a superset
+of all the sub-teams and projects they contain. A few examples:
+a. Adding a user to a child team will also add them to all parent teams as well, but in
+a minimalist role. Adding a member to the App Eng team will add that same
+member as a viewer to the Engineering team and a viewer to any other parent
+teams above that.
+b. Adding a user to a parent team will not add them to any child teams.
+c. Removing a user from a parent team will remove them from all child teams as
+well.
+9. Clicking on any Team node in the tree should show you reporting at that team level, both
+status in terms of statistics and a list of weekly reports. Both should summarize all of the
+sub-teams and projects within that team. Weekly reports will percolate up the tree.
+
+Update from 1/7:
+I am running into a bit of a challenge, and wanted to write it up here to get a second opinion.
+● Background: we now have a separate user object and organization_user object. The
+latter connects the user to an organization and contains org-specific info as well.
+
+●
+
+●
+
+●
+●
+
+Problem: it can be difficult to access the organization_user from the context of some
+objects. If you are working with a project, it is easy - you just look them up by
+organizationId and userId. But for a sub-item like an issue, you only have projectId and
+userId. This is a problem both for reading data (think of the complications populating the
+my issues page for example), and when writing data.
+Potential solutions:
+○ Solution A - add a random ID to the organization_user table, and refer to that
+from all of the other models. This makes it straightforward to connect to data but
+changes the foreign keys and input / outputs everywhere. It also gets verbose creatorOrganizationUserId for example (this is the solution I have mostly coded
+up and working at this point). This also has a downside when you are creating
+new objects - you will have a user_id from the authenticated user but will need to
+look up the organization_user and may need to look up the organizationId to do
+so.
+○ Solution B - don’t have an id in the organization_user table, and do the
+connection based on both organization_id and user_id. In some cases, we will
+need to make another DB call to look up organization_id. Even worse, some of
+the data objects will have a user_id but will not be able to have a reference to the
+organiztion_user table. For example, TemplateIssue will have a user_id but not
+an organization_id field, and so cannot connect to that table directly. This will
+make for some nasty queries.
+○ Solution C - similar to Solution B above, but denormalize organization_id, and set
+it on pretty much all of our tables. This like Issues would have both a link to
+project_id and to organization_id, and from there could put together a link to
+organization_user. There would still be a couple places we need to do an extra
+lookup but only for write scenarios which should be ok. We would have some
+duplicate data, but we should not be changing organization, and this could even
+help us partition things a bit more cleanly.
+○ Solution D - move to a single organization per user. The entire organization_user
+table would go away, and you would need to create a new user (with a new
+email) for each organization you wanted to be a part of.
+Proposal - after writing this down, I like solutions C and D. I think I will code up solution
+C, and if that is too complex, move to option D.
+Conclusion - we will go with Solution D, and punt cross-org users into the future.
+
+",NA

@@ -1,0 +1,23 @@
+.editor {
+  overflow: auto;
+  max-width: 100%;
+}
+
+.preview {
+  height: 600px;
+  width: 100%;
+  border: none;
+}
+
+.text-preview {
+  height: 750px;
+  width: 100%;
+  border: none;
+}
+
+.preview-body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  box-sizing: border-box;
+}

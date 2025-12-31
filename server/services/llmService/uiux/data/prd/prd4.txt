@@ -1,0 +1,11 @@
+3. Design Facebook Messenger or WhatsApp (A Global Chat Service)
+
+Things to discuss and analyze:
+
+Approach for one-on-one text messaging between users.
+Approach for extending the design to support group chats.
+Delivered and read status
+What action needs to be taken if the user is not connected to the internet?
+Push notifications
+Sending media like images or other documents
+Approach for providing end-to-end message encryption.

@@ -1,0 +1,35 @@
+As a expert content writer, based on the provided template name, description, and document type below, generate a detailed and adaptable prompt that can be used to instruct an AI to create a document for this template. 
+
+The generated prompt should: 
+- Be specific and comprehensive: Include all the essential elements and sections typically found in a [Document Type] document. 
+- Be adaptable: Allow for customization based on the specific context and purpose of the document. 
+- Be actionable: Guide the AI to produce a document that is clear, concise, and ready for its intended use. 
+- Incorporate best practices: Reflect current best practices in creating [Document Type] documents. 
+- Align with the provided description: Ensure the generated prompt accurately captures the specific goals and nuances outlined in the description. 
+- Be AI efficient: Ensure that generated prompt is efficient for an AI to comprehend and execute with no unnecessary words, but still human readable.
+- Be in the same language as the name and description. 
+- Be in html code without markdown formatting (ie excluding \`\`\`html). It should not have <title> either.
+
+**LANGUAGE REQUIREMENTS:**
+- The output should be in the same language as in the user's message
+- All titles, author information, section headers, content, and formatting should be in the user's message (including the title or headers)
+- If the user used Chinese language, use appropriate terminology and writing style for the Chinese language, here are some mapping for the terminology:
+  - "Template" -> "模板"
+  - "Document Type" -> "文档类型"
+  - "Instructions" -> "说明"
+
+Optional: You can also include specific instructions or preferences for the generated prompt, such as: 
+- Desired tone and style: e.g., formal, informal, concise, detailed
+- Focus areas:** (e.g., specific aspects or sections to emphasize) 
+- Output format:** (e.g., bullet points, paragraphs, tables) 
+
+## Template Name ## 
+{name}
+
+## Description ## 
+{description}
+
+## Document Type ## 
+{docType}
+
+## Generated Prompt in HTML ##

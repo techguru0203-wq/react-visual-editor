@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Upload and Question Answering</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .upload-section, .question-section, .answer-section {
+            background-color: #111;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .upload-area {
+            border: 2px dashed #3498db;
+            border-radius: 8px;
+            padding: 40px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .upload-area:hover {
+            background-color: #1a1a1a;
+        }
+        input[type="file"] {
+            display: none;
+        }
+        .btn {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 4px;
+            background-color: #222;
+            color: #fff;
+            border: 1px solid #444;
+        }
+        .document-list, .answer-display {
+            margin-top: 20px;
+        }
+        .document-item, .citation {
+            background-color: #222;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+        .loading {
+            text-align: center;
+            display: none;
+        }
+        .error {
+            color: #e74c3c;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Document Upload and Question Answering</h1>
+            <p>Upload documents, ask questions, and get answers with citations</p>
+        </header>
+        
+        <section class="upload-section">
+            <h2>Upload Documents</h2>
+            <div class="upload-area" id="dropZone">
+                <p>Drag and drop files here or click to select</p>
+                <input type="file" id="fileInput" multiple accept=".pdf,.doc,.docx,.txt">
+            </div>
+            <div class="document-list" id="documentList"></div>
+            <div class="error" id="uploadError"></div>
+        </section>
+        
+        <section class="question-section">
+            <h2>Ask a Question</h2>
+            <textarea id="questionInput" rows="3" placeholder="Type your question here..."></textarea>
+            <button class="btn" id="submitQuestion">Submit Question</button>
+        </section>
+        
+        <section class="answer-section">
+            <h2>Answer</h2>
+            <div class="answer-display" id="answerDisplay"></div>
+            <div class="loading" id="loadingIndicator">Processing...</div>
+            <div class="error" id="answerError"></div>
+        </section>
+    </div>
+
+    <script>
+        const dropZone = document.getElementById('dropZone');
+        const fileInput = document.getElementById('fileInput');
+        const documentList = document.getElementById('documentList');
+        const uploadError = document.getElementById('uploadError');
+        const questionInput = document.getElementById('questionInput');
+        const submitQuestion = document.getElementById('submitQuestion');
+        const answerDisplay = document.getElementById('answerDisplay');
+        const loadingIndicator = document.getElementById('loadingIndicator');
+        const answerError = document.getElementById('answerError');
+
+        dropZone.addEventListener('click', () => fileInput.click());
+        dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropZone.style.backgroundColor = '#1a1a1a';
+        });
+        dropZone.addEventListener('dragleave', () => {
+            dropZone.style.backgroundColor = '';
+        });
+        dropZone.addEventListener('drop', handleFileDrop);
+        fileInput.addEventListener('change', handleFileSelect);
+        submitQuestion.addEventListener('click', handleQuestionSubmit);
+
+        function handleFileDrop(e) {
+            e.preventDefault();
+            dropZone.style.backgroundColor = '';
+            const files = e.dataTransfer.files;
+            handleFiles(files);
+        }
+
+        function handleFileSelect(e) {
+            const files = e.target.files;
+            handleFiles(files);
+        }
+
+        function handleFiles(files) {
+            uploadError.textContent = '';
+            for (const file of files) {
+                if (isValidFile(file)) {
+                    uploadFile(file);
+                } else {
+                    uploadError.textContent = 'Invalid file type. Please upload PDF, Word, or text files.';
+                }
+            }
+        }
+
+        function isValidFile(file) {
+            const validTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'text/plain'];
+            return validTypes.includes(file.type);
+        }
+
+        function uploadFile(file) {
+            // Simulating file upload
+            const listItem = document.createElement('div');
+            listItem.className = 'document-item';
+            listItem.textContent = `${file.name} - Uploaded`;
+            documentList.appendChild(listItem);
+        }
+
+        function handleQuestionSubmit() {
+            const question = questionInput.value.trim();
+            if (question) {
+                answerDisplay.innerHTML = '';
+                answerError.textContent = '';
+                loadingIndicator.style.display = 'block';
+                
+                // Simulating answer generation
+                setTimeout(() => {
+                    loadingIndicator.style.display = 'none';
+                    const answer = "This is a simulated answer to your question.";
+                    const citation = "Citation: Document A, Page 5";
+                    displayAnswer(answer, citation);
+                }, 2000);
+            } else {
+                answerError.textContent = 'Please enter a question.';
+            }
+        }
+
+        function displayAnswer(answer, citation) {
+            const answerElement = document.createElement('p');
+            answerElement.textContent = answer;
+            const citationElement = document.createElement('div');
+            citationElement.className = 'citation';
+            citationElement.textContent = citation;
+            answerDisplay.appendChild(answerElement);
+            answerDisplay.appendChild(citationElement);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+## API INTEGRATION MODULE
+
+Add external API integration functionality to the existing application.
+
+## INTEGRATION PROCESS
+
+1. **IDENTIFY THE EXTERNAL SYSTEM** - Determine which external service/API to integrate
+2. **FETCH API DOCUMENTATION** - Find and analyze the external API's documentation
+3. **ANALYZE API SPECIFICATIONS** - Understand endpoints, authentication, data models, and requirements
+4. **IMPLEMENT NATIVE INTEGRATION** - Create code that seamlessly integrates the external API into the existing app
+
+## IMPLEMENTATION REQUIREMENTS
+
+### 1. Research First, Code Second
+- **ALWAYS** research the external API before writing any code
+- Understand the API's capabilities, limitations, and best practices
+- Check for official SDKs or libraries that can simplify integration
+- Verify authentication requirements and setup process
+
+### 2. Security-First Approach
+- **Never expose API keys** in frontend code
+- **Use environment variables** for sensitive configuration
+- **Add rate limiting** to prevent abuse
+- **Sanitize all external data** before processing
+
+### 3. User Experience Focus
+- **Provide clear feedback** during API operations
+- **Handle errors gracefully** with actionable messages
+- **Implement retry logic** for transient failures
+- **Cache responses** when appropriate to improve performance
+- **Show loading states** and progress indicators
+
+## SECURITY REQUIREMENTS
+
+- **Environment-based configuration** for API credentials
+- **Request validation** and input sanitization
+- **Rate limiting** to prevent abuse and respect API limits
+- **Error handling** that doesn't expose sensitive information
+- **CORS configuration** for secure cross-origin requests
+- **Token rotation** and credential management
+
+## USER EXPERIENCE
+
+- **Clear loading states** during API operations
+- **Informative error messages** with actionable guidance
+- **Retry mechanisms** for failed requests
+- **Caching strategies** for improved performance
+- **Real-time updates** where the API supports it
+- **Offline handling** for network failures

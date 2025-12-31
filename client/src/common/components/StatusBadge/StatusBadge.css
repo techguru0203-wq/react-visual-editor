@@ -1,0 +1,6 @@
+.status-badge {
+    display: inline-block;
+    border-radius: 8px;
+    padding: 4px 12px;
+    background-color: #d0d0d0;
+}

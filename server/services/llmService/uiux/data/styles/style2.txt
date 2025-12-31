@@ -1,0 +1,10 @@
+Typography:
+Font Style: The primary font used is elegant and readable, likely a serif font for headings and sans-serif for body text, contributing to a professional look.
+Font Size: Large headings are used to grab attention, with smaller, easy-to-read text for details and descriptions.
+Text Alignment: The text is center-aligned for headings and left-aligned for body text, which aids readability and aesthetic balance.
+Color Scheme:
+Background: The background color is a light grey, providing a neutral and calming effect that helps other elements stand out.
+Primary Colors: The design utilizes a minimal color palette. Key colors include:
+Dark Grey/Black: Used for primary text to ensure high readability.
+White: Used for background of content sections to create a clean look.
+Accent Colors: Light green, blue, and orange are used as accent colors for interactive elements like buttons and indicators, adding vibrancy without overwhelming the user.

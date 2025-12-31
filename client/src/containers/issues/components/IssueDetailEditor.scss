@@ -1,0 +1,36 @@
+.comment-user-name {
+  padding-left: 5px;
+  font-size: smaller;
+  font-weight: bold;
+}
+
+.issueDetailSide .ant-row {
+  height: 48px;
+}
+
+.issue-short-name {
+  color: #c0c0c0;
+}
+
+.issue-editor-layout{
+  .issue-detail-editor{
+    width: calc(100% - 396px) !important;
+  }
+  .issue-editor-form{
+    width: 380px !important;
+  }
+  @media screen and (max-width: 1023px) {
+    flex-direction: column !important;
+
+    .issue-detail-editor{
+      width: 100% !important;
+    }
+
+    .issue-editor-form{
+      width: 100% !important;
+      flex: 0 0 100% !important;
+      max-width: 100% !important;
+      min-width: 100% !important;
+    }
+  }
+}

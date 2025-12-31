@@ -1,0 +1,147 @@
+@import 'src/styles/colors.scss';
+@import 'src/styles/z-index.scss';
+
+.doc-editor-card {
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+
+  .ant-card-body {
+    width: 1000px;
+    text-align: center;
+  }
+}
+.ant-splitter-bar-collapse-bar {
+  opacity: 1 !important;
+  visibility: visible !important;
+  width: 8px !important;
+  height: 40px !important; 
+  background-color: #5345f3 !important; 
+  opacity: 0.5 !important;
+  border-radius: 4px !important; 
+  display: none !important ;//flex !important;
+  align-items: center;
+  justify-content: center;
+  cursor: ew-resize; 
+  box-shadow: none !important; 
+  border: none !important;
+  z-index: 20;
+  transition: background-color 0.2s ease;
+  padding: 0 !important;
+  position: absolute;
+  left: 0;
+  transform: translateX(-50%);
+}
+
+.ant-splitter-bar-collapse-bar:hover {
+  background-color: #5345f3 !important;
+  opacity: 1 !important;
+}
+
+/* make it bigger and visualize it */
+.ant-splitter-bar-collapse-bar svg {
+  font-size: 18px !important;
+}
+
+.ant-splitter-bar-collapse-bar svg {
+  display: none !important;
+}
+
+.ant-splitter-bar-dragger::after {
+  height: 32px !important;
+  width: 6px !important;
+  background-color: #5345f3 !important;
+  opacity: 0.8 !important;
+  border-radius: 4px !important;
+}
+
+.import-btn {
+  padding: 3px 15px;
+  height: 32px;
+  display: inline-block;
+  font-size: 15px;
+  color: #1677ff;
+  cursor: pointer;
+}
+
+.doc-history-item {
+  width: 100%;
+  cursor: pointer;
+  border: 2px solid #ffffff;
+  padding: 5px;
+
+  &.selected {
+    border: 1px solid rgba(83, 69, 243, 0.4);
+    border-radius: 10px;
+  }
+}
+
+#document-editor-container {
+  flex: 1;
+  flex-grow: 1;
+  position: relative;
+  z-index: $documentEditorZIndex;
+  opacity: 1;
+  transition: all 0.3s ease;
+  .document-editor-content{
+    overflow: auto;
+    height: calc(100% - 20px);
+    @media screen and (max-width: 1299px) {
+      height: calc(100% - 66px);
+    }
+    @media screen and (max-width: 767px) {
+      .toolbar{
+        display: none;
+      }
+    }
+  }
+}
+
+.doc-editor-full-screen {
+  position: fixed!important;
+  left: 0;
+  top: 60px;
+  bottom: 0;
+  width: 100%!important;
+}
+
+.document-form {
+  height: 100%;
+  display: 'flex';
+  flex-direction: 'column';
+  .ant-form-item {
+    margin-bottom: 0;
+  }
+  background-color: #fff;
+}
+
+#resizer {
+  width: 4px;
+  position: relative;
+  cursor: col-resize;
+  border-left: 1px solid rgba(255, 255, 255, 0.05);
+  background: #fff;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  z-index: $resizerZindex;
+
+  &:hover {
+    background: #eee;
+    >div {
+      display: block;
+    }
+  }
+
+  >div {
+    display: none;
+    margin-left: -28px;
+  }
+}
+
+.anticon-fullscreen,.anticon-fullscreen-exit {
+  &:hover {
+    color: $COLOR_PRIMARY;
+  }
+}

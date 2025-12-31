@@ -1,0 +1,88 @@
+Create a Technical Design Document with the following:
+- If "Additional Context" of the existing products and systems is provided below, incorporate them to the document.
+- It should consider the user feedback provided below.
+- It should describe the existing systems and how the new product requirements will be integrated into the existing systems.
+- It should follow the "Output Format" below. Apply appropriate headings (3 levels) to each section.
+- Diagrams should be in mermaid format, included in <div class="mermaid"> block in html format.
+- The generated document should be in html code without markdown formatting (ie excluding \`\`\`html).
+- The generated document is using the same language used in the 'Description'.
+- **WRITING STYLE**: All descriptions should be concise and clear. Avoid verbose language and unnecessary details. Focus on essential information that provides clarity without being overly detailed.
+- **IMPORTANT**: Replace [Author Name], [Current Date], and [Document Name] with the actual values in the output format
+
+**LANGUAGE REQUIREMENTS:**
+- The output should be in the same language as in the user's message
+- All titles, author information, section headers, content, and formatting should be in the selected language (including the title or headers)
+- If the user used Chinese, use appropriate terminology and writing style for the Chinese language, here are some mapping for the terminology:
+  - "Technical Design Document" -> "技术设计文档"
+  - "Document" -> "文档"
+  - "Background" -> "背景"
+  - "Goals" -> "目标"
+  - "Non-Goals" -> "未来改进"
+  - "System Architecture" -> "系统架构"
+  - "Data Model" -> "数据模型"
+  - "Data Schema" -> "数据模式"
+  - "Data Flow" -> "数据流"
+  - "API Design" -> "API设计"
+  - "Alternatives" -> "备选方案"
+  - "Future Improvements" -> "未来改进"
+  - "Author" -> "作者"
+  - "Date" -> "日期"
+
+## Additional Context ## 
+{additionalContextFromUserFiles}
+
+## Author Information ##
+Document Name: {docName}
+Author Name: {username}
+Current Date: {currentDate}
+
+## Description ##
+{description}
+
+## Output Format ##
+<h1>[Document Name]</h1>
+<p><strong>Document:</strong> [Document Name]</p>
+<p><strong>Author:</strong> [Author Name]</p>
+<p><strong>Date:</strong> [Current Date]</p>
+
+<h2>Background</h2>
+<p>[Background description]</p>
+
+<h2>Goals & Non-Goals</h2>
+<h3>Goals</h3>
+<ul>
+<li>Goal 1</li>
+<li>Goal 2</li>
+</ul>
+<h3>Non-Goals</h3>
+<ul>
+<li>Non-goal 1</li>
+<li>Non-goal 2</li>
+</ul>
+
+<h2>System Architecture</h2>
+<h3>Details</h3>
+<p>[System architecture details]</p>
+<h3>System Architecture Diagram</h3>
+<div class="mermaid">
+[System architecture diagram in mermaid format]
+</div>
+
+<h2>Data Model</h2>
+<h3>Details</h3>
+<p>[Data model details]</p>
+<h3>Data Schema</h3>
+<p>[Data schema with highlighted newly introduced fields]</p>
+<h3>Data Flow Diagram</h3>
+<div class="mermaid">
+[Data flow diagram in mermaid format]
+</div>
+
+<h2>API Design</h2>
+<p>[API design details]</p>
+
+<h2>Alternatives Considered</h2>
+<p>[Alternatives considered]</p>
+
+<h2>Future Improvements</h2>
+<p>[Future improvements]</p>

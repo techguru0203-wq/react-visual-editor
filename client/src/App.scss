@@ -1,0 +1,334 @@
+@import 'src/common/css/constant';
+@import 'src/styles/colors.scss';
+@import '@fontsource/poppins';
+
+.login-screen {
+  min-height: 100vh;
+}
+.login-header {
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+.flexCenter {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.checkmark {
+  display: inline-block;
+  transform: rotate(45deg);
+  height: 25px;
+  width: 12px;
+  margin-left: 60%;
+  border-bottom: 7px solid #78b13f;
+  border-right: 7px solid #78b13f;
+}
+
+// tree list
+.epic-list .ant-list-item {
+  border-bottom: none;
+  padding: 2px;
+}
+// tree list - hide action icons for milestone non-leaf nodes
+.milestone-tree .ant-tree-treenode.ant-tree-treenode-switcher-close button,
+.milestone-tree .ant-tree-treenode.ant-tree-treenode-switcher-open button,
+.milestone-tree .ant-tree-title button:last-child {
+  display: none;
+}
+.milestone-tree .ant-tree-title .space-x-0\.5 button:last-child {
+  display: block;
+}
+
+// tree list - hide new field to add types
+.items-center.w-max.space-x-2 {
+  display: none;
+}
+// tree list - make input editable wider
+.ant-tree-title input {
+  width: 600px;
+  border-bottom: 1px solid lightgreen;
+}
+
+// edit doc page button css
+.doc-action-btn {
+  margin: 10px;
+}
+
+// antd descriptions css overwrite
+.project-overview .ant-descriptions-header,
+.project .ant-descriptions-header {
+  margin-bottom: 10px;
+}
+.project-overview .ant-descriptions-row > td {
+  padding-bottom: 8px;
+}
+
+// antd modal css overwrite
+.ant-modal-footer {
+  display: none;
+}
+
+// enable footer for specific modals
+.app-modal-with-footer {
+  .ant-modal-footer {
+    display: flex !important;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+}
+
+// antd modal confirm cancel button styling
+.ant-modal-confirm-btns .ant-btn:not(.ant-btn-primary) {
+  background-color: #f5f5f5;
+  border-color: #d9d9d9;
+  color: rgba(0, 0, 0, 0.88);
+  
+  &:hover {
+    background-color: #f5f5f5;
+    border-color: #d9d9d9;
+    color: rgba(0, 0, 0, 0.88);
+  }
+}
+
+// antd submit button for form (such as add project form)
+[type='submit'],
+.app-btn {
+  &[disabled] {
+    background-color: rgba(0, 0, 0, 0.04) !important;
+  }
+}
+
+// antd p tag css overwrite (such as Create Issue Modal)
+p {
+  margin-bottom: 0.25rem;
+}
+
+// antd Card css overwrite
+.link-card {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.app-card {
+  margin-bottom: 10px;
+  border: 1px solid #f0f0f0;
+  padding-bottom: 5px;
+  .ant-card-head {
+    padding: 0 12px;
+    min-height: 40px;
+  }
+
+  .ant-card-body {
+    padding: 12px;
+  }
+
+  .ant-card-type-inner {
+    padding: '8px 4px';
+  }
+
+  p {
+    display: list-item;
+    margin-left: 1em;
+    list-style: disc;
+  }
+}
+
+// reporting page css
+.metric-label {
+  width: 170px;
+  font-size: 12px;
+  margin-left: 5px;
+}
+.metric-block {
+  width: 400px;
+  margin-bottom: 10px;
+}
+.reporting-title {
+  text-align: center;
+}
+
+// project nav and secondary menu style
+.project-nav .ant-tabs-nav {
+  margin-bottom: 0px !important;
+  flex-wrap: wrap;
+  gap: 10px;
+  &::before{
+    @media screen and (max-width: 478px) {
+      border-bottom: none;
+    }
+  }
+  
+  .ant-tabs-nav-wrap{
+    position: relative;
+    @media screen and (max-width: 478px) {
+      &::before{
+        position: absolute;
+        bottom: 0;
+        opacity: 1;
+        width: 100%;
+        border-bottom: 1px solid #f0f0f0;
+        z-index: -1;
+        box-shadow: none;
+      }
+    }
+
+    &::after{
+      box-shadow: none;
+    }
+
+    .ant-tabs-nav-list{
+      transform: translate(0) !important;
+    }
+  }
+  .ant-tabs-extra-content{
+    @media screen and (max-width: 575px) {
+      display: none;
+    }
+  }
+}
+.secondary-menu {
+  font-size: 13px;
+
+  .ant-menu-overflow-item{
+    padding: 0 8px;
+
+    &::after{
+      inset-inline: 8px !important
+    }
+  }
+}
+.action-group {
+  font-size: 13px;
+  margin-left: auto;
+  height: 37px;
+
+  button {
+    padding: 0 5px;
+  }
+}
+
+/* ant space css for Building page */
+.milestone-table,
+.backlog-table,
+.myissues-table {
+  // td {
+  //   padding: 8px !important;
+  // }
+  .ant-space,
+  .ant-space-item:last-child {
+    width: 100%;
+  }
+
+  .ant-picker,
+  .ant-input {
+    border: none;
+  }
+
+  .ant-select-selector {
+    border: none !important;
+  }
+
+  .goal-badge{
+    width: 100%;
+    .ant-badge-status-text{
+      display: inline-block;
+      position: relative;
+      top: 5px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      width: calc(100% - 26px);
+    }
+  }
+}
+.editiable-text {
+  background: transparent;
+  word-break: break-word;
+  overflow: hidden;
+  user-select: text;
+  cursor: text;
+  border: none;
+  padding: 4px;
+  transition:
+    border-color 0.15s ease-in-out 0s,
+    box-shadow 0.15s ease-in-out 0s;
+}
+
+.editiable-title {
+  @extend .editiable-text;
+  font-size: 30px;
+}
+
+// buildable edit document
+.buildable-editor-docs {
+  margin: 0;
+  padding: 0;
+  li {
+    color: black;
+    cursor: pointer;
+  }
+}
+
+.mermaid {
+  background: #fff;
+  border-radius: 5px;
+  padding: 16px;
+  margin: 16px 0;
+}
+
+// svg text display
+g.text-group > text {
+  transform: translate(0px,-10px);
+}
+
+.ant-breadcrumb .ant-breadcrumb-link {
+  max-width: 150px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  display: inline-block;
+  text-decoration: underline;
+  @media screen and (max-width: 575px) {
+    max-width: 72px;
+  }
+}
+
+.ant-breadcrumb ol li:last-child .ant-breadcrumb-link {
+  text-decoration: none;
+}
+
+.link-button {
+  &:hover {
+    cursor: pointer;
+    color: $COLOR_PRIMARY;
+  }
+}
+
+.ant-modal-confirm-btns button {
+  background-color: $COLOR_PRIMARY;
+}
+
+.ant-pagination-item{
+  @media screen and (max-width: 575px) {
+    margin-right: 6px;
+    &.ant-pagination-item-3{
+      display: none;
+    }
+    &.ant-pagination-item-4{
+      display: none;
+    }
+  }
+}
+
+.chat-list{
+  .owner-cell{
+    .ant-space-item{
+      &:last-child{
+        width: calc(100% - 40px);
+      }
+    }
+  }
+}

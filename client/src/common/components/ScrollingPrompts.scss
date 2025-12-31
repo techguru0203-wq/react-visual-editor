@@ -1,0 +1,50 @@
+.scrolling-prompts-container {
+  width: 100%;
+  overflow: hidden;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  padding: 0;
+  position: relative;
+}
+
+.typing-prompts-wrapper {
+  width: 100%;
+  overflow: hidden;
+  min-height: 24px;
+}
+
+.typing-prompt-text {
+  display: inline-block;
+  font-size: 16px;
+  color: #8c8c8c;
+  white-space: nowrap;
+  font-weight: 400;
+}
+
+.typing-cursor {
+  display: inline-block;
+  margin-left: 2px;
+  color: #1890ff;
+  animation: blink 1s step-end infinite;
+  font-weight: 300;
+}
+
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .typing-prompt-text {
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,94 @@
+---
+alwaysApply: true
+---
+Willy Project Cursor Local Rules (Project-first)
+
+Priority
+- This file defines project-specific rules that take precedence over any editor/global Cursor rules.
+- When in conflict with README.md, follow README.md.
+
+Language Policy
+- All project files MUST be written in English.
+- Exceptions: client/src/common/contexts/languageContext.tsx may contain non-English strings.
+- Code comments, documentation, commit messages, and PR titles/descriptions should be in English.
+
+
+Package Manager & Scripts (npm)
+- Install dependencies: npm install
+- Do not use pnpm/yarn as the default package manager.
+
+Frontend (client)
+- Stack: React + TypeScript.
+- UI framework: Ant Design (antd). Do not introduce shadcn/ui. Use antd message/notification for global toasts.
+- Form validation: use antd Form rules and display errors inline within form items (avoid replacing inline errors with global toasts).
+- Styles: keep consistent with existing SCSS and styling conventions; avoid large unrelated refactors.
+- API client and data fetching:
+  - ALWAYS use @tanstack/react-query (react-query) for server state management.
+  - Define API functions in feature-specific modules (e.g., client/src/containers/{feature}/api/{feature}Api.ts).
+  - API functions should use fetch + getHeaders() from client/src/common/util/apiHeaders.
+  - Pattern: 
+    1. Create typed API functions that return parsed data directly (throw on error).
+    2. Use useQuery/useMutation hooks in components to call these functions.
+    3. Never create generic HTTP client wrappers; keep API functions explicit and typed.
+  - Example structure:
+    ```typescript
+    // In api file
+    export async function getItemsApi(): Promise<Item[]> {
+      const headers = await getHeaders();
+      const result = await fetch(`${api_url}/api/items`, { method: 'GET', headers });
+      const { success, data, errorMsg } = await result.json();
+      if (success) return data;
+      throw new Error(errorMsg || 'Failed to fetch items');
+    }
+    // In component
+    const { data: items } = useQuery({ queryKey: ['items'], queryFn: getItemsApi });
+    ```
+- Internationalization (i18n):
+  - ALL user-facing text MUST be defined in client/src/common/contexts/languageContext.tsx with both English and Chinese translations.
+  - Use the t() function to display text in code, e.g., t('stripe.configuration').
+  - Never hardcode UI text strings directly in components; always use translation keys.
+  - Translation keys should follow a hierarchical naming convention (e.g., 'module.section.label').
+
+Backend (server)
+- Language: TypeScript.
+- Data access: Prisma (see server/db/prisma.ts); avoid raw SQL string concatenation.
+- Database changes:
+  - Update server/db/schema.prisma;
+  - Maintain corresponding migrations in server/db/migrations (timestamped), ensuring backward compatibility and idempotent setup;
+  - For local dev, follow README and run npx prisma generate.
+- Routing and services layering:
+  - Routes: server/routes/api/{feature}.ts and register in the aggregate index;
+  - Business logic: server/services/{feature}Service.ts;
+  - Shared constants/utilities: server/lib or shared directories.
+- Authentication:
+  - All API routes (except 'signup' and 'pub') are automatically protected by authenticatedRequestHandler middleware (see server/routes/api/index.ts).
+  - User info is stored in response.locals.currentUser with properties { userId, userName }.
+- Document meta field updates:
+  - NEVER directly update document.meta using prisma.document.update({ data: { meta: {...} } }).
+  - ALWAYS use documentMetaService functions from server/services/documentMetaService.ts to avoid race conditions.
+  - Use updateDocumentMeta() for shallow merge: updateDocumentMeta(docId, { key: value }).
+  - Use updateDocumentMetaPath() for deep nested updates: updateDocumentMetaPath(docId, 'path.to.key', value).
+  - Direct overwrites cause data loss when concurrent updates occur; partial updates leverage PostgreSQL jsonb operators for atomicity.
+
+API Spec
+- Auth: reuse middlewares/utilities (e.g., server/lib/apiKeyAuth.ts). Perform authorization checks in the service layer; keep routes thin.
+
+Code Style & Quality
+- Write only the ABSOLUTE MINIMAL amount of code needed to address the requirement, avoid verbose implementations and any code that doesn't directly contribute to the solution
+- Naming: functions are verbs/verb phrases; variable names are descriptive and meaningful. Avoid 1–2 letter abbreviations.
+- Control flow: prefer early returns; avoid deep nesting; use try/catch only when necessary and never swallow errors.
+- Comments: keep only non-obvious intent/constraints/edge cases; avoid obvious comments.
+- Types: exported/public APIs must have explicit types; avoid any and unsafe assertions.
+- Formatting: match existing project style; avoid mass reformatting of unrelated files.
+
+Commits & Documentation
+- Changes must pass type checks and build; do not introduce new linter errors (resolve or provide justified exemptions).
+- New/updated APIs: keep OpenAPI spec and shared/types in sync.
+- Any externally visible behavior/usage change: update README or module docs with clear breaking-change notes and migration guidance.
+
+Implementation Notes
+- Before adding features, review related directories (server/routes/api, server/services, client/src/common/api, shared/types) to keep structure and conventions consistent.
+- When current implementation conflicts with these rules:
+  1) Evaluate the cost to converge to these rules;
+  2) If convergence is not immediately feasible, keep the exception minimal and explain in the PR with a follow-up plan;
+  3) New code should adhere to these rules.

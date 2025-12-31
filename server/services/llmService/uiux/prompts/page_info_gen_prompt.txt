@@ -1,0 +1,30 @@
+please generate a web design based on the PRD-Product Requirements Document. If there is no PRD provided, please use the best practice based on similar products for the generation.
+
+Generate your response in a json format:
+{
+    "pages": [
+        {
+            "page_name":  String,
+            "product_requirements": String,
+            "page_description": String,
+            "components": String
+        },
+        ..
+    ]
+}
+
+Note:
+The "product_requirements" is the section of the PRD that describes the features of the page.
+If the PDR need one page, make sure all features are included in a single page.
+If the PDR has multiple pages, make sure to include all the relevant pages. 
+Please keep the page number as small as possible, and not have too many pages.
+Please make sure the components contain all the necessary components for the page, some components might not be mentioned in the PRD, but you should add them for functionality completeness.
+Please make sure the page_description, product_requirements and components contain as much information as needed.
+Please make sure there is NO slashes ('/') in the page name.
+
+Generated output should be in the same language as Product Requirement Document, and the output must be a valid JSON string with the format specified above.
+
+##Product Requirements Document##
+{{prd}}
+
+##Response##

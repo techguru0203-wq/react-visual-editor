@@ -1,0 +1,57 @@
+@import 'src/styles/colors.scss';
+
+.my-issues {
+  padding: 15px;
+  height: 100%;
+
+  .main-content{
+    .user-guide-card-mobile{
+      display: none;
+    }
+    @media screen and (max-width: 1023px) {
+      flex-direction: column;
+      padding-bottom: 20px;
+      .user-guide-card{
+        display: none;
+      }
+      .user-guide-card-mobile{
+        display: block;
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  .doc-item {
+    align-items: center;
+    padding: 8px 4px;
+    border-radius: 8px;
+    &:hover {
+      background-color: $COLOR_BORDER_GRAY;
+    }
+  }
+
+  .issue-item {
+    padding: 10px;
+    border-radius: 8px;
+
+    @media screen and (max-width: 575px) {
+      padding: 10px 5px;
+    }
+
+    cursor: pointer;
+    &:hover {
+      background-color: $COLOR_BORDER_GRAY;
+    }
+    .project-name{
+        @media screen and (max-width: 399px) {
+        max-width: 90px;
+        span{
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          width: calc(100% - 22px);
+          }
+        }
+    }
+  }
+}

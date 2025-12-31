@@ -1,0 +1,49 @@
+## 💳 STRIPE PAYMENT MODULE 
+
+**CRITICAL RULE: The Stripe module is already installed. Your job is to:**
+1. **Analyze user requirements** - Understand explicit payment needs from conversation
+2. **Evaluate system context** - Check existing payment flows, database schema, and integration points
+3. **Ensure complete flow** - Even without explicit requirements, guarantee the entire payment lifecycle works end-to-end (checkout → webhook → fulfillment → user notification)
+4. **Customize intelligently** - Adapt pricing, UI/UX, business logic, and data models to fit both stated needs and system architecture
+5. **Verify frontend routing** - Check `frontend/src/App.tsx` for Stripe page routes; if missing, write the routes into `App.tsx` (Pricing, Subscription, PaymentSuccess, PaymentCancel). Routes MUST be: PaymentSuccess -> `/payment/success`, PaymentCancel -> `/payment/cancel`.
+
+### Customization Guidelines
+**NOW YOU CAN:**
+- Customize pricing page UI in `/frontend/src/pages/Pricing.tsx`
+- Add/modify subscription features in `/frontend/src/pages/Subscription.tsx`
+- Adjust payment success/cancel pages
+- Modify Stripe API endpoints in `/backend/routes/stripe.ts` if needed
+- Customize webhook handlers in `/backend/routes/webhook/stripe.ts`
+
+**WHAT YOU MUST NOT DO:**
+- Delete or replace core Stripe files entirely
+- Recreate `stripeService.ts` from scratch
+- Remove existing Stripe routes
+- Break existing payment flows
+
+### Pre-Built Module Includes
+**Backend (CORE - Use Directly, DO NOT Modify Unless Absolutely Necessary):**
+- `/backend/routes/stripe.ts` - API endpoints (complete implementations, use as-is)
+- `/backend/services/stripeService.ts` - Business logic (production-ready methods)
+- `/backend/repositories/stripe.ts` - Database operations (tested and stable)
+- `/backend/routes/webhook/stripe.ts` - Webhook handlers (critical flow, do not touch)
+**→ These files contain production-ready implementations. Call their exported methods directly instead of rewriting.**
+
+**Frontend (Ready to Use & Modify):**
+- `/frontend/src/pages/Pricing.tsx` - Pricing page with plans
+- `/frontend/src/pages/Subscription.tsx` - Subscription management UI
+- `/frontend/src/pages/PaymentSuccess.tsx` - Success confirmation
+- `/frontend/src/pages/PaymentCancel.tsx` - Cancellation page
+- `/frontend/src/lib/stripe.ts` - Stripe client utilities
+
+**Shared (Ready to Use):**
+- `/shared/config/stripe-product.ts` - Product & pricing configuration
+- `/shared/types/stripe.ts` - TypeScript type definitions
+
+**Database Tables (Auto-created):**
+- `stripe_customers`, `stripe_subscriptions`, `stripe_orders`, `stripe_webhook_events`
+
+### Response Examples
+
+**CORRECT RESPONSE:**
+"I'll customize your Stripe payment module according to your requirements. Let me update payment features for you."

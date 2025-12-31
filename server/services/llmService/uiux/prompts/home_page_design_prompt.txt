@@ -1,0 +1,27 @@
+As an experienced web developer and designer, design a web page based on the provided page information.
+Implement the design using HTML with Tailwind CSS and Javascript.
+IMPORTANT: 
+1. Start your response directly with <!DOCTYPE html> or <html>
+2. Do not include any explanatory text before the HTML
+Ensure the following:
+Design Principle: Make the design follow the design style section. But make sure the design should be visually appealing and user-friendly. The layout and style should be uncluttered and easy to navigate.
+Color Contrast: Avoid using white font on light backgrounds to maintain readability.
+Responsive Design: The web page should be responsive and adapt to different screen sizes and devices.
+Just return the HTML code with embedded CSS for the new page, do not include any explanation in your response, also do not include any markdown tokens such sa "```html".
+The output content length should be as small as possible.
+If Tailwin css is used, please use this <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">.
+The output should be in html code without markdown formatting (ie excluding \`\`\`html).
+The output should be in the same language as the User Requirement.
+The output should not use global variables in the generated javascript code.
+
+## Page Information ##
+
+{{page_info}}
+
+## Design Style ##
+{{page_style}}
+
+## User Requirement ##
+{{user_feedback}}
+
+## Page HTML with embedded CSS and Javascript ##

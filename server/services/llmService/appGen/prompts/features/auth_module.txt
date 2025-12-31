@@ -1,0 +1,210 @@
+## AUTHENTICATION MODULE
+
+Add complete authentication functionality to the existing application.
+
+## AUTHENTICATION REQUIREMENTS
+
+### Key Features:
+- **EXTEND existing User table** - add authentication fields to existing schema as needed
+- **CREATE backend API routes** - login, signup, logout endpoints
+- **CREATE backend authentication middleware** - JWT token validation
+- Password hashing with bcrypt
+- Form validation with proper error handling
+- Integration with existing app state/context
+- Protected routes and navigation
+
+## IMPLEMENTATION REQUIREMENTS
+
+### 1. Code Generation
+- **EXTEND existing User table** - add password, email, and auth fields to existing schema
+- **CREATE backend API routes** - /api/auth/login, /api/auth/signup, /api/auth/logout
+- **CREATE backend middleware** - JWT authentication middleware
+- **UPDATE frontend components** - use backend APIs, not localStorage
+- Generate **complete, working files** with proper imports and exports
+- Include **proper TypeScript types** and interfaces
+- Add ** error handling** and validation
+- Ensure **responsive design** that matches the app's existing UI
+- **Seamless integration** - Authentication should feel native to the app
+- **Proper navigation** - Add authentication routes to existing routing setup
+- **State management** - Integrate with existing app state/context
+
+## REQUIRED COMPONENTS
+
+Generate the following authentication components, adapting to the existing app structure:
+
+### Frontend Components:
+- **Login Page** - Complete login form with email/password + direct redirect handling
+- **Signup Page** - Complete signup form with name/email/password/confirm password + direct redirect handling
+- **Protected Route Component** - Route protection component + redirect to login
+
+** CRITICAL FILE LOCATIONS:**
+- **Login/Signup components** → `frontend/src/components/custom/Login.tsx` and `frontend/src/components/custom/Signup.tsx`
+
+## SECURITY REQUIREMENTS
+
+- **Password hashing** with bcrypt (minimum 12 rounds)
+- **Input validation** on both frontend and backend
+- **Error handling** that doesn't expose sensitive information
+
+## USER EXPERIENCE
+
+- **Smooth navigation** between authenticated and unauthenticated states
+- **Clear error messages** for validation and authentication failures
+- **Loading states** during authentication operations
+- **Remember me** functionality for better UX
+- **Password reset** flow (basic implementation)
+
+## CRITICAL: AUTHENTICATION REDIRECTS
+
+**ALWAYS handle redirects directly in login/signup components:**
+
+**CRITICAL REDIRECT RULES:**
+- **NEVER leave users on login/signup pages after successful auth**
+- **ALWAYS redirect to main page (`/`) after login/signup success**
+- **ALWAYS redirect to login (`/login`) when no token found**
+- **ALWAYS redirect to login (`/login`) after logout**
+- **CRITICAL: HashRouter requires hash prefix in window.location.href**
+  - **CORRECT**: `window.location.href = '/#/login'` (with hash prefix for HashRouter)
+  - **WRONG**: `window.location.href = '/login'` (will cause 404 error)
+  - **ALTERNATIVE**: Use `useNavigate('/login')` from react-router-dom (automatically handles HashRouter correctly)
+  - **When using window.location.href**: Always include `/#` prefix for HashRouter apps
+  - **When using useNavigate**: Use `/login` (no hash prefix needed, HashRouter handles it automatically)
+
+**CRITICAL: LOGIN/SIGNUP COMPONENT REDIRECT IMPLEMENTATION**
+
+**MANDATORY: Login and Signup components MUST redirect immediately after successful authentication:**
+
+```typescript
+// Login.tsx - REQUIRED PATTERN
+import { useAuth } from '../contexts/AuthContext';
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+
+const Login = () => {
+  const { login, isAuthenticated } = useAuth();
+  const navigate = useNavigate();
+
+  // Redirect if already authenticated
+  useEffect(() => {
+    if (isAuthenticated === true) {
+      navigate('/', { replace: true });
+    }
+  }, [isAuthenticated, navigate]);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    // ... form validation ...
+    
+    try {
+      const response = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password }),
+      });
+      
+      const data = await response.json();
+      
+      if (data.success && data.data.token) {
+        login(data.data.token);
+        navigate('/', { replace: true });
+      } else {
+        // Handle error
+      }
+    } catch (error) {
+      // Handle error
+    }
+  };
+
+  // ... rest of component
+};
+```
+
+**CRITICAL REQUIREMENTS:**
+1. **MUST call `login(token)` then `navigate('/', { replace: true })` immediately after** - Updates auth state and redirects
+2. **MUST add `useEffect` to redirect if `isAuthenticated === true`** - Prevents authenticated users from accessing login page
+3. **MUST use `useNavigate` from react-router-dom with `replace: true`** - Handles HashRouter correctly and prevents back button issues
+
+## CRITICAL: UPDATE App.tsx WHEN AUTH IS ENABLED
+
+**MANDATORY: When generating authentication, you MUST update `frontend/src/App.tsx` to include AuthContext and auth routes:**
+
+1. **Import AuthContext:**
+   ```typescript
+   import { AuthProvider, useAuth } from './contexts/AuthContext';
+   import { Navigate } from 'react-router-dom';
+   ```
+
+2. **Create AppRoutes component that uses useAuth:**
+   ```typescript
+   const AppRoutes = () => {
+     const { isAuthenticated } = useAuth();
+
+     // Show loading while checking authentication
+     if (isAuthenticated === null) {
+       return (
+         <div className="min-h-screen bg-background flex items-center justify-center">
+           <div className="text-foreground text-xl">Loading...</div>
+         </div>
+       );
+     }
+
+     return (
+       <Routes>
+         {/* Redirect authenticated users away from login/signup */}
+         <Route 
+           path="/login" 
+           element={isAuthenticated ? <Navigate to="/" replace /> : <Login />} 
+         />
+         <Route 
+           path="/signup" 
+           element={isAuthenticated ? <Navigate to="/" replace /> : <Signup />} 
+         />
+         {/* Protect home page - redirect to login if not authenticated */}
+         <Route 
+           path="/" 
+           element={isAuthenticated ? <Index /> : <Navigate to="/login" replace />} 
+         />
+         {/* Add other protected routes here */}
+       </Routes>
+     );
+   };
+   ```
+   
+   **CRITICAL: Route Order Matters**
+   - Login/Signup routes check `isAuthenticated` first - if true, redirect to `/`
+   - Protected routes (like `/`) check `isAuthenticated` - if false, redirect to `/login`
+   - This ensures proper redirect flow after login
+
+3. **Wrap App with AuthProvider:**
+   ```typescript
+   const App = () => {
+     return (
+       <HashRouter>
+         <AuthProvider>
+           <AppRoutes />
+         </AuthProvider>
+       </HashRouter>
+     );
+   };
+   ```
+
+4. **Import Login and Signup components:**
+   ```typescript
+   import Login from './components/custom/Login';
+   import Signup from './components/custom/Signup';
+   ```
+
+5. **Protect all routes that require authentication:**
+   - Use `isAuthenticated ? <Component /> : <Navigate to="/login" replace />` pattern
+   - Redirect authenticated users away from login/signup pages
+
+**CRITICAL: The AuthContext already exists at `frontend/src/contexts/AuthContext.tsx` - DO NOT recreate it, just import and use it.**
+
+** CRITICAL VALIDATION:**
+- [ ] **FILE LOCATIONS** - Login.tsx and Signup.tsx are in `frontend/src/components/custom`
+- [ ] **App.tsx UPDATED** - App.tsx includes AuthProvider wrapper and auth routes
+- [ ] **AUTHCONTEXT USED** - Uses existing AuthContext from `./contexts/AuthContext`, does NOT recreate it
+- [ ] **DIRECT REDIRECTS** - Redirects are handled directly in login/signup components, NOT in non-existent auth service
+- [ ] **NO AUTH SERVICE** - Do NOT create or reference auth service - handle API calls directly
+- [ ] **REDIRECT TESTING** - Users are redirected to home page after successful login/signup
+- [ ] **LOGIN FUNCTION** - Login/Signup components use `login(token)` from `useAuth()` hook to update authentication state

@@ -1,0 +1,75 @@
+Follow the instructions below to create a release plan document:
+- "Additional Context" includes the development plan for the project. Please use that for the release plan creation.
+- It should consider the description provided below.
+- It should follow the the structure of "Output Format" defined below.
+- Only include milestones and epics, but not stories and tasks.
+- It should be in html code without markdown formatting (ie excluding \`\`\`html).
+- It should be in the same language as in the "User Feedback"
+- **WRITING STYLE**: All descriptions should be concise and clear. Avoid verbose language and unnecessary details. Focus on essential information that provides clarity without being overly detailed.
+- **IMPORTANT**: Replace [Author Name], [Current Date], and [Document Name] with the actual values in the output format
+
+**LANGUAGE REQUIREMENTS:**
+- The output should be in the same language as in the user's message
+- All titles, author information, section headers, content, and formatting should be in the selected language (including the title or headers)
+- If the user used Chinese, use appropriate terminology and writing style for the Chinese language, here are some mapping for the terminology:
+  - "Release Plan" -> "发布计划"
+  - "Document" -> "文档"
+  - "Releases" -> "发布版本"
+  - "Release Date" -> "发布日期"
+  - "Epics" -> "大型需求"
+  - "Release Checklist" -> "发布前检查清单"
+  - "Checklist Item" -> "检查清单项"
+  - "Milestone" -> "里程碑"
+  - "Author" -> "作者"
+  - "Date" -> "日期"
+
+## Additional Context ## 
+{additionalContextFromUserFiles}
+
+## Author Information ##
+Author Name: {username}
+Current Date: {currentDate}
+Document Name: {docName}
+
+## Description ##
+{description}
+
+## Output Format ##
+<h1>[Document Name]</h1>
+<p><strong>Document:</strong> [Document Name]</p>
+<p><strong>Author:</strong> [Author Name]</p>
+<p><strong>Date:</strong> [Current Date]</p>
+
+
+<h2>Releases</h2>
+<h3>Release 1</h3>
+<p><strong>Release Date:</strong> [Release Date]</p>
+<h4>Epics</h4>
+<ul>
+<li>Epic 1</li>
+<li>Epic 2</li>
+<li>...</li>
+</ul>
+<h4>Release Checklist</h4>
+<ul>
+<li>Checklist item 1</li>
+<li>Checklist item 2</li>
+<li>...</li>
+</ul>
+
+<h3>Release 2</h3>
+<p><strong>Release Date:</strong> [Release Date]</p>
+<h4>Epics</h4>
+<ul>
+<li>Epic 1</li>
+<li>Epic 2</li>
+<li>...</li>
+</ul>
+<h4>Release Checklist</h4>
+<ul>
+<li>Checklist item 1</li>
+<li>Checklist item 2</li>
+<li>...</li>
+</ul>
+
+## Generated Release Plan in HTML ##

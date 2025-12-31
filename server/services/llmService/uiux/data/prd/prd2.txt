@@ -1,0 +1,73 @@
+Product Requirements Document for Omniflow Public Launch
+Problem &amp; Opportunity
+Omniflow is currently a powerful tool for automating project workflows, but it is not yet publicly
+available. The existing system lacks several key features that are essential for a public launch, such
+as user-friendly signup/login options, document sharing capabilities, and a refined user interface. By
+addressing these gaps, we can make Omniflow more accessible and appealing to a broader
+audience, thereby increasing user adoption and revenue.
+Target Audience &amp; User Persona
+Our target audience includes project managers, engineers, and stakeholders in various industries
+who are looking for efficient project management solutions. User personas include:
+● Project Managers: Need tools for planning, scheduling, and tracking project progress.
+● Engineers: Require task tracking, progress updates, and capacity planning features.
+● Stakeholders: Interested in predictive project insights, risk analysis, and action
+recommendations.
+Metrics and Goals
+● Increase user signups by 50% within the first three months of public launch.
+● Achieve a 30% conversion rate from free to paid tiers within six months.
+● Reduce user churn rate to less than 5% within the first year.
+● Improve user satisfaction scores for document editing and sharing features to at least 4.5 out
+of 5.
+Use Cases / Features
+● Google OAuth for user signup/login support
+● Fullscreen mode for document editing/viewing
+● Document Sharing capability
+● Refinement of generated content through additional prompts
+● Initial free access to 5 projects, with Stripe integration for additional projects
+● Different pricing tiers with restricted feature access
+● UI polish for Builder, Reporting pages, Issue Page, My Issue Page, etc.
+● Improved landing page with sections like Pricing, FAQ, etc.
+Functional Requirements
+● Implement Google OAuth for user authentication.
+● Add fullscreen mode for document editing and viewing.
+● Enable document sharing with specific users or teams.
+● Allow users to refine generated content by typing additional prompts.
+● Integrate Stripe for payment processing and manage different pricing tiers.
+● Provide initial access to 5 projects for free users.
+● Restrict feature access based on pricing tiers.
+● Enhance UI for Builder, Reporting pages, Issue Page, My Issue Page, etc.
+● Update the landing page to include Pricing, FAQ, and other relevant sections.
+Non-functional Requirements
+● Ensure high availability and reliability of the system.
+● Maintain data privacy and security, especially for payment information.
+● Optimize performance for document editing and sharing features.
+
+● Ensure compatibility with major web browsers and devices.
+● Provide a responsive and intuitive user interface.
+Epics &amp; User Stories
+Epic 1: User Authentication
+● User Story 1: As a user, I want to sign up using my Google account so that I can quickly
+create an account without filling out a form.
+● User Story 2: As a user, I want to log in using my Google account so that I can access my
+existing projects easily.
+Epic 2: Document Management
+● User Story 1: As a user, I want to edit documents in fullscreen mode so that I can focus on my
+work without distractions.
+● User Story 2: As a user, I want to share documents with my team so that we can collaborate
+effectively.
+● User Story 3: As a user, I want to refine generated content by typing additional prompts so
+that the document meets my specific needs.
+Epic 3: Payment and Pricing
+● User Story 1: As a user, I want to start with 5 free projects so that I can evaluate the tool
+before committing to a paid plan.
+● User Story 2: As a user, I want to pay for additional projects through Stripe so that I can
+continue using the tool without interruptions.
+● User Story 3: As a user, I want to choose from different pricing tiers so that I can select a plan
+that fits my needs and budget.
+Epic 4: UI Enhancements
+● User Story 1: As a user, I want a polished UI for the Builder and Reporting pages so that I can
+navigate and use the features easily.
+● User Story 2: As a user, I want an improved Issue Page and My Issue Page so that I can
+manage my tasks more efficiently.
+● User Story 3: As a visitor, I want to see detailed sections like Pricing and FAQ on the landing
+page so that I can make an informed decision about using Omniflow.

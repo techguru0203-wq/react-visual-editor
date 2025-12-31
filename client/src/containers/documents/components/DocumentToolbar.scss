@@ -1,0 +1,111 @@
+.document-toolbar{
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background-color: white;
+  flex-wrap: wrap;
+  column-gap: 10px;
+
+  // Ensure left group stays together
+  > div:first-child {
+    flex-shrink: 0;
+    white-space: nowrap;
+    min-width: 0;
+  }
+
+  .ant-breadcrumb{
+    ol{
+      flex-wrap: nowrap;
+      overflow: hidden;
+    }
+    @media screen and (max-width: 767px) {
+      padding-left: 40px;
+      padding-top: 3px;
+    }
+    @media screen and (max-width: 575px) {
+      font-size: 13px;
+      .ant-breadcrumb-separator{
+        margin: 0 4px;
+      }
+    }
+  }
+
+  .breadcrumb-buttons{
+    gap: 10px;
+    width: fit-content;
+    margin: auto;
+    margin-top: -4px;
+    @media screen and (max-width: 1200px) {
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    @media screen and (max-width: 842px) {
+      margin-top: 0;
+    }
+    @media screen and (max-width: 767px) {
+      gap: 4px;
+    }
+    @media screen and (max-width: 575px) {
+      gap: 2px;
+    }
+  }
+
+  .toolbar-main-ctn-btn {
+    color: white;
+    background: #5345f3;
+
+    &:hover {
+      background: #5345f3 !important;
+    }
+  }
+
+  .ant-steps {
+    position: relative;
+    width: 450px;
+
+    @media screen and (max-width: 1200px) {
+      display: none;;
+    }
+
+    .ant-steps-item {
+      width: auto;
+      flex: 1;
+      position: relative;
+
+      .ant-steps-item-content {
+        margin-top: 5px;
+        text-align: center;
+        position: relative;
+      }
+
+      .ant-steps-item-title {
+        font-size: 14px;
+        white-space: nowrap;
+      }
+
+      &:nth-child(2) {
+        flex: 1.2;
+        min-width: 150px;
+      }
+
+      &:last-child {
+        .ant-steps-item-content {
+          text-align: right;
+        }
+      }
+
+      .ant-steps-item-tail {
+        position: absolute !important;
+        top: 12px !important;
+        left: 0 !important;
+        right: 0 !important;
+        height: 1px !important;
+        background-color: #d9d9d9 !important;
+        width: auto !important;
+        transform: none !important;
+      }
+    }
+
+  }
+
+}

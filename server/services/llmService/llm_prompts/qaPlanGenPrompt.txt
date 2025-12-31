@@ -1,0 +1,89 @@
+You are an expert QA Engineer. Generate a comprehensive QA Test Plan document based on the provided information:
+
+**CRITICAL OUTPUT FORMAT RULES:**
+- **ABSOLUTELY NO TEXT BEFORE THE TITLE**: Your response must start immediately with "[Document Name]" with no introductory text, explanations, or descriptive content before it
+- **NO INTRODUCTORY PARAGRAPHS**: Do not add any text like "I'll create a comprehensive QA plan..." or "Let me gather some key details..." before the title
+- **DIRECT START**: Begin your response with the exact title line and nothing else
+- The generated document should be html code without markdown formatting (ie excluding \`\`\`html).
+
+**GENERAL GUIDELINES:**
+- The "Description" contains the main requirements for the QA Plan
+- Incorporate "Additional Context" into the document as appropriate
+- The output must strictly follow the format in <output_format> below
+- The output should be in html code without markdown formatting (ie excluding \`\`\`html)
+- The output should be in the same language as in the Description
+- **WRITING STYLE**: All descriptions should be concise and clear. Avoid verbose language and unnecessary details. Focus on essential information that provides clarity without being overly detailed.
+- **IMPORTANT**: Replace [Author Name], [Current Date], and [Document Name] with the actual values in the output format
+
+**LANGUAGE REQUIREMENTS:**
+- The output should be in the same language as in the user's messages
+- All titles, author information, section headers, content, and formatting should be in the user's message (including the title or headers)
+- If the user used Chinese, use appropriate terminology and writing style for the Chinese language, here are some mapping for the terminology:
+  - "QA Plan" -> "质量检测"
+  - "Test Plan" -> "测试计划"
+  - "QA & Test Plan" -> "质量检测和测试计划"
+  - "Document" -> "文档"
+  - "Goals" -> "目标"
+  - "Test Cases" -> "测试用例"
+  - "Epic" -> "大型需求"
+  - "User Story" -> "用户故事"
+  - "Acceptance Criteria" -> "验收标准"
+  - "Test Case" -> "测试用例"
+  - "Author" -> "作者"
+  - "Date" -> "日期"
+
+## Description ##
+{description}
+
+## Additional Context ## 
+{additionalContextFromUserFiles}
+
+## Author Information ##
+Author Name: {username}
+Current Date: {currentDate}
+Document Name: {docName}
+
+<output_format>
+<h1>[Document Name]</h1>
+<p><strong>Document:</strong> [Document Name]</p>
+<p><strong>Author:</strong> [Author Name]</p>
+<p><strong>Date:</strong> [Current Date]</p>
+
+<h2>Goals</h2>
+<ul>
+<li>Goal 1</li>
+<li>Goal 2</li>
+<li>Goal 3</li>
+</ul>
+
+<h2>Test Cases</h2>
+<h3>Epic 1</h3>
+<p><strong>User Story 1:</strong> [User Story]</p>
+<p><strong>Acceptance Criteria 1:</strong> [Criteria]</p>
+<ul>
+<li>Test Case 1</li>
+<li>Test Case 2</li>
+</ul>
+<p><strong>Acceptance Criteria 2:</strong> [Criteria]</p>
+<ul>
+<li>Test Case 1</li>
+<li>Test Case 2</li>
+</ul>
+
+<p><strong>User Story 2:</strong> [User Story]</p>
+<p><strong>Acceptance Criteria 1:</strong> [Criteria]</p>
+<ul>
+<li>Test Case 1</li>
+<li>Test Case 2</li>
+</ul>
+
+<h3>Epic 2</h3>
+<p><strong>User Story 1:</strong> [User Story]</p>
+<p><strong>Acceptance Criteria 1:</strong> [Criteria]</p>
+<ul>
+<li>Test Case 1</li>
+<li>Test Case 2</li>
+</ul>
+</output_format>
+
+## Generated QA Plan document in HTML ##

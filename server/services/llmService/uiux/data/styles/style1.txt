@@ -1,0 +1,5 @@
+Color Scheme: The website predominantly uses a dark color palette with black and red as the primary colors. The red elements serve as accent colors, drawing attention to key areas like the header, buttons, and certain sections of the content.
+
+Typography: The typography is bold and modern, with a large, all-caps sans-serif font used for the main header "WELCOME TO DIGEST." Subheadings and other text elements maintain a clean and readable sans-serif font, ensuring good readability against the dark background.
+
+Layout: The layout is well-structured, with a clear hierarchy and sections. The main welcome message is centrally positioned with large text, and there are distinct sections for popular topics and the latest articles. This creates an organized and user-friendly navigation experience.

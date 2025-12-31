@@ -1,0 +1,14 @@
+.dropdown-container{
+  .dropdown-operation{
+    display: none;
+  }
+  
+}
+
+.dropdown-container:hover{
+  .dropdown-operation{
+    display: block;
+    background-color: #ebebeb;
+  }
+  
+}

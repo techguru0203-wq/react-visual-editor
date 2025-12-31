@@ -1,0 +1,46 @@
+.knowledge-base-home {
+  .search-view-controls {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+
+    .search-input {
+      flex: 1;
+      min-width: 280px;
+      max-width: 500px;
+    }
+  }
+
+  .knowledge-base-card {
+    height: 200px;
+    padding: 5px;
+    min-width: 300px;
+    box-shadow: 0 0 8px 0 #ccc;
+    transition: box-shadow 0.3s ease;
+
+    &:hover {
+      box-shadow: 0 0 8px 0 #333;
+    }
+
+    .ant-card-body {
+      padding: 10px 5px;
+    }
+
+    .ant-card-meta-title {
+      margin-bottom: 0;
+    }
+
+    .knowledge-base-card-menu {
+      color: #595959;
+      background: transparent;
+      border: none;
+
+      &:hover {
+        background: rgba(0, 0, 0, 0.06);
+        color: #262626;
+      }
+    }
+  }
+}
+

@@ -1,0 +1,24 @@
+@import 'src/styles/colors.scss';
+
+.doc-action-container {
+  div {
+    margin-right: 10px;
+    color: $COLOR_GRAY;
+    cursor: pointer;
+
+    &:hover {
+      color: $COLOR_PRIMARY;
+    }
+  }
+}
+
+.chat-msg p {
+  margin-bottom: 10px;
+}
+
+// Ensure images inside chat message don't overflow the bubble
+.chat-msg img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}

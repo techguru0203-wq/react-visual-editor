@@ -1,0 +1,112 @@
+.project-step {
+  width: 100%;
+  
+  .ant-steps {
+    // Ensure proper spacing between steps
+    .ant-steps-item {
+      flex: 1;
+      padding-right: 0;
+      
+      .ant-steps-item-container {
+        padding-right: 0;
+        display: flex;
+        align-items: center;
+        
+        .ant-steps-item-tail {
+          // Make connecting lines visible and center-aligned
+          top: 50%;
+          transform: translateY(-50%);
+          left: calc(50% + 16px);
+          width: calc(100% - 32px);
+          height: 2px;
+          background-color: #f0f0f0;
+          border: none;
+          margin-top: 0;
+          
+          &::after {
+            background-color: #f0f0f0;
+            height: 2px;
+          }
+        }
+        
+        .ant-steps-item-icon {
+          background-color: #f5f5f5 !important;
+          border-color: #d9d9d9 !important;
+          width: 32px;
+          height: 32px;
+          margin-right: 8px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          .ant-steps-icon {
+            color: #595959 !important;
+            font-size: 14px;
+            line-height: 1;
+          }
+        }
+        
+        .ant-steps-item-content {
+          display: flex;
+          align-items: center;
+          padding-right: 16px; // Add space between text and connecting line
+          
+          .ant-steps-item-title {
+            padding-right: 0;
+            line-height: 1.5;
+            display: inline-flex;
+            align-items: center;
+          }
+        }
+      }
+    }
+
+    // Active step - make text theme color
+    .ant-steps-item.ant-steps-item-active {
+      .ant-steps-item-title {
+        color: #5345F3 !important;
+      }
+      
+      .ant-steps-item-icon {
+        border-color: #5345F3 !important;
+        background-color: #fff !important;
+        
+        .ant-steps-icon {
+          color: #5345F3 !important;
+        }
+      }
+    }
+
+    // Completed step - make checkmark theme color
+    .ant-steps-item.ant-steps-item-finish {
+      .ant-steps-item-icon {
+        border-color: #5345F3 !important;
+        background-color: #fff !important;
+        
+        .ant-steps-icon {
+          color: #5345F3 !important;
+        }
+      }
+      
+      .ant-steps-item-tail {
+        &::after {
+          background-color: #5345F3 !important;
+        }
+      }
+    }
+    
+    // Wait step - ensure tail is visible
+    .ant-steps-item.ant-steps-item-wait {
+      .ant-steps-item-tail {
+        &::after {
+          background-color: #f0f0f0;
+        }
+      }
+    }
+
+    // Ensure hover events work
+    .ant-steps-item-title {
+      pointer-events: auto !important;
+    }
+  }
+}

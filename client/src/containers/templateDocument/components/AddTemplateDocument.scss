@@ -1,0 +1,55 @@
+.template-document-upload .ant-upload-list {
+
+  .ant-upload,
+  .ant-upload-select,
+  .ant-upload-list-item::before,
+  .ant-upload-list-item-container {
+    width: 90px !important;
+    height: 90px !important;
+    overflow: hidden;
+    border-radius: 6px !important;
+  }
+}
+.add-template-document-form {
+  textarea, input {
+    font-size: 13px;
+  }
+
+  .ant-form-item-label{
+    padding: 0;
+  }
+  
+  @media screen and (max-width: 575px) {
+    .ant-form-item{
+      margin-bottom: 16px;
+      label{
+        height: 32px !important;
+      }
+    }
+  }
+
+  button {
+    font-size: 14px;
+  }
+
+  .buttons-row{
+    gap: 20px;
+    @media screen and (max-width: 575px) {
+      gap: 8px;
+    }
+  }
+}
+
+.app-container .app-main-area .add-template-container {
+  margin: 0;
+  padding: 0 20px;
+  @media screen and (max-width: 767px) {
+    padding: 0 16px;
+  }
+}
+
+// .editor-content {
+//   border: 1px solid lightgray;
+//   border-radius: 5px;
+//   min-height: 100px;
+// }

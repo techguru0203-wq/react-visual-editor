@@ -1,0 +1,158 @@
+@import 'src/styles/colors.scss';
+
+.app-container {
+  margin: 0;
+  // min-height: 100vh;
+  height: 100%;
+
+  .ant-layout-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .app-header {
+    margin: 0;
+    padding: 16px;
+    background: white;
+    line-height: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-bottom: 1px solid $COLOR_BORDER_GRAY;
+
+    .brand {
+      font-size: 1.4em;
+    }
+    .organization {
+      flex: 1;
+      // text-align: center;
+      font-size: 1.8em;
+      font-weight: bold;
+    }
+    .action-link {
+      font-size: 1.2em;
+      color: rgba(0, 0, 0, 0.65);
+    }
+    .action-menu {
+      font-size: 1.2em;
+    }
+  }
+
+  .app-sider {
+    border-right: 1px solid $COLOR_BORDER_GRAY;
+    padding-bottom: '50px';
+    box-sizing: border-box;
+    width: 225px;
+    overflow: auto;
+    display: 'flex';
+    flex-direction: column;
+    >div {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .ant-menu-submenu-title,.ant-menu-submenu {
+      color: inherit!important;
+      a {
+        color: inherit!important;
+      }
+    }
+
+    .toggle-button-container {
+      position: absolute;
+      bottom: 10px;
+      right: 25px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+    .ant-menu-submenu, .ant-menu, .ant-menu-item, .ant-layout-sider-trigger {
+      background-color: white !important;
+    }
+    .ant-menu-item-active{
+      background-color: #ebebeb !important;
+    }
+
+    .ant-menu-item-selected .ant-typography,
+    .ant-menu-item-selected svg, 
+    .root-menu-selected svg {
+      color: $COLOR_PRIMARY!important;
+    }
+    .ant-menu-submenu-selected>.ant-menu-submenu-title {
+      >.ant-menu-title-content,>svg {
+        color: $COLOR_PRIMARY!important;
+      }
+    }
+    .root-menu-selected>.ant-menu-title-content {
+      color: $COLOR_PRIMARY!important;
+    }
+    .ant-menu-item-selected, .root-menu-selected .ant-menu-submenu-title {
+      color: $COLOR_PRIMARY!important;
+      svg {
+        color: $COLOR_PRIMARY!important;
+      }
+    }
+  }
+
+  .app-main-area
+  {
+    background: white;
+    overflow: auto;
+    flex-grow: 1;
+    >div {
+      padding: 20px;
+
+      .main-heading{
+        margin-top: 0 !important;
+        margin-bottom: 16px !important;
+        @media screen and (max-width: '767px') {
+          padding-left: 44px;
+        }
+      }
+      @media screen and (max-width: '767px') {
+        padding: 16px;
+      }
+    }
+
+    .section-heading {
+      padding-bottom: 0.5em;
+      h1, h2, h3, h4, h5 {
+        margin: 0;
+      }
+      .actions {
+        margin-left: 3em;
+      }
+    }
+  }
+
+  .page-container {
+    padding: 10px;
+    .ant-divider {
+      border-block-start: none;
+    }
+  }
+}
+
+.ant-drawer{
+  .ant-menu-item-selected .ant-typography,
+  .ant-menu-item-selected svg, 
+  .root-menu-selected svg {
+    color: $COLOR_PRIMARY!important;
+  }
+  .ant-menu-submenu-selected>.ant-menu-submenu-title {
+    >.ant-menu-title-content,>svg {
+      color: $COLOR_PRIMARY!important;
+    }
+  }
+  .root-menu-selected>.ant-menu-title-content {
+    color: $COLOR_PRIMARY!important;
+  }
+  .ant-menu-item-selected, .root-menu-selected .ant-menu-submenu-title {
+    color: $COLOR_PRIMARY!important;
+    svg {
+      color: $COLOR_PRIMARY!important;
+    }
+  }
+}
+
+
+

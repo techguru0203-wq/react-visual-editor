@@ -1,0 +1,146 @@
+// PrototypeEditor styles
+
+.prototype-file-tree {
+  // Override default padding
+  padding: 0;
+  
+  // List container
+  .ant-tree-list {
+    background: transparent;
+  }
+  
+  // Tree node holder - this wraps the entire row
+  .ant-tree-treenode {
+    padding: 0 !important;
+    margin: 0 !important;
+    align-items: center !important;
+    
+    // Remove default hover background
+    &::before {
+      display: none !important;
+    }
+    
+    &:hover {
+      background-color: #f5f5f5 !important;
+    }
+    
+    // Selected state - entire row background
+    &.ant-tree-treenode-selected {
+      background-color: #e8e8e8 !important;
+      
+      .ant-tree-node-content-wrapper {
+        background-color: transparent !important;
+        color: #262626 !important;
+      }
+      
+      .ant-tree-title {
+        color: #262626 !important;
+      }
+    }
+  }
+
+  // Content wrapper - just flex layout, no extra styling
+  .ant-tree-node-content-wrapper {
+    display: flex;
+    align-items: center;
+    padding: 3px 8px 3px 0 !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    color: #595959;
+    font-size: 14px;
+    line-height: 20px;
+    flex: 1;
+    background-color: transparent !important;
+    min-height: 28px;
+    
+    &:hover {
+      background-color: transparent !important;
+    }
+
+    &.ant-tree-node-selected {
+      background-color: transparent !important;
+    }
+  }
+
+  // Title text
+  .ant-tree-title {
+    color: #595959;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    flex: 1;
+  }
+
+  // Switcher (expand/collapse arrow)
+  .ant-tree-switcher {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 18px !important;
+    height: 28px;
+    margin-right: 0;
+    padding-left: 2px;
+    color: #8c8c8c;
+    flex-shrink: 0;
+    background: transparent !important;
+    
+    .ant-tree-switcher-icon {
+      font-size: 10px;
+      color: #8c8c8c;
+    }
+    
+    svg {
+      font-size: 10px;
+      color: #8c8c8c;
+    }
+    
+    // Remove all hover effects
+    &:hover {
+      background: transparent !important;
+    }
+    
+    &::before,
+    &::after {
+      display: none !important;
+    }
+  }
+  
+  // Switcher noop (leaf nodes) - hide it so files don't have extra indent
+  .ant-tree-switcher-noop {
+    width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: none !important;
+  }
+
+  // Indent for nested items - proper indentation for hierarchy
+  .ant-tree-indent {
+    &-unit {
+      width: 10px !important;
+    }
+  }
+
+  // Icon element (file icons)
+  .ant-tree-iconEle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 18px;
+    height: 16px;
+    margin-right: 4px;
+    margin-left: 0;
+    padding-left: 2px;
+    flex-shrink: 0;
+    
+    svg {
+      font-size: 14px;
+      color: #595959;
+    }
+  }
+  
+  // Checkbox - hide if present
+  .ant-tree-checkbox {
+    display: none;
+  }
+}
+

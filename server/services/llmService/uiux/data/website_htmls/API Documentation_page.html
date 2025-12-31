@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Documentation - URL Shortener</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background-color: #fff;
+            padding: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+        nav {
+            float: right;
+        }
+        nav a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #333;
+        }
+        h1, h2, h3 {
+            color: #4CAF50;
+        }
+        h1 {
+            text-align: center;
+            font-size: 36px;
+            margin-top: 50px;
+        }
+        .section {
+            background-color: #fff;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        pre {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .endpoint {
+            background-color: #e9f5e9;
+            padding: 10px;
+            border-left: 5px solid #4CAF50;
+            margin-bottom: 20px;
+        }
+        .method {
+            font-weight: bold;
+            color: #4CAF50;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        #apiConsole {
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        #apiConsole input, #apiConsole select {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+        #apiConsole button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        #apiResponse {
+            margin-top: 20px;
+            white-space: pre-wrap;
+        }
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+        }
+        footer a {
+            color: #fff;
+            margin: 0 10px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            nav {
+                float: none;
+                margin-top: 10px;
+            }
+            nav a {
+                display: block;
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <span class="logo">URL Shortener API</span>
+            <nav>
+                <a href="#">Home</a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>API Documentation</h1>
+
+        <div class="section">
+            <h2>Introduction</h2>
+            <p>Welcome to the URL Shortener API documentation. This API allows you to programmatically shorten URLs, expand shortened URLs, and retrieve statistics for your shortened links.</p>
+        </div>
+
+        <div class="section">
+            <h2>Authentication</h2>
+            <p>To use the API, you need to include your API key in the header of each request:</p>
+            <pre>Authorization: Bearer YOUR_API_KEY</pre>
+            <p>To obtain an API key, please contact our support team.</p>
+        </div>
+
+        <div class="section">
+            <h2>Endpoints</h2>
+
+            <div class="endpoint">
+                <h3><span class="method">POST</span> /shorten</h3>
+                <p>Shorten a long URL</p>
+                <h4>Request Body:</h4>
+                <pre>{
+  "url": "https://example.com/very/long/url"
+}</pre>
+                <h4>Response:</h4>
+                <pre>{
+  "short_url": "https://short.url/abc123"
+}</pre>
+            </div>
+
+            <div class="endpoint">
+                <h3><span class="method">GET</span> /expand/{short_code}</h3>
+                <p>Expand a shortened URL</p>
+                <h4>Response:</h4>
+                <pre>{
+  "original_url": "https://example.com/very/long/url"
+}</pre>
+            </div>
+
+            <div class="endpoint">
+                <h3><span class="method">GET</span> /stats/{short_code}</h3>
+                <p>Get statistics for a shortened URL</p>
+                <h4>Response:</h4>
+                <pre>{
+  "clicks": 42,
+  "created_at": "2023-04-20T12:00:00Z",
+  "last_clicked": "2023-04-21T15:30:00Z"
+}</pre>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Rate Limiting</h2>
+            <p>The API is rate limited to 100 requests per minute per API key. If you exceed this limit, you'll receive a 429 Too Many Requests response.</p>
+        </div>
+
+        <div class="section">
+            <h2>Error Codes</h2>
+            <table>
+                <tr>
+                    <th>Status Code</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>400</td>
+                    <td>Bad Request - Invalid input</td>
+                </tr>
+                <tr>
+                    <td>401</td>
+                    <td>Unauthorized - Invalid API key</td>
+                </tr>
+                <tr>
+                    <td>404</td>
+                    <td>Not Found - Short URL not found</td>
+                </tr>
+                <tr>
+                    <td>429</td>
+                    <td>Too Many Requests - Rate limit exceeded</td>
+                </tr>
+                <tr>
+                    <td>500</td>
+                    <td>Internal Server Error</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>API Console</h2>
+            <div id="apiConsole">
+                <select id="endpoint">
+                    <option value="shorten">POST /shorten</option>
+                    <option value="expand">GET /expand</option>
+                    <option value="stats">GET /stats</option>
+                </select>
+                <input type="text" id="apiInput" placeholder="Enter URL or short code">
+                <button onclick="testAPI()">Test API</button>
+                <pre id="apiResponse"></pre>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Changelog</h2>
+            <ul>
+                <li><strong>2023-04-20:</strong> Initial API release</li>
+                <li><strong>2023-04-21:</strong> Added rate limiting information</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <a href="#">Terms of Service</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Contact</a>
+    </footer>
+
+    <script>
+        function testAPI() {
+            const endpoint = document.getElementById('endpoint').value;
+            const input = document.getElementById('apiInput').value;
+            const responseElement = document.getElementById('apiResponse');
+
+            let response;
+            switch (endpoint) {
+                case 'shorten':
+                    response = {
+                        short_url: `https://short.url/${Math.random().toString(36).substr(2, 5)}`
+                    };
+                    break;
+                case 'expand':
+                    response = {
+                        original_url: 'https://example.com/very/long/url'
+                    };
+                    break;
+                case 'stats':
+                    response = {
+                        clicks: Math.floor(Math.random() * 100),
+                        created_at: new Date().toISOString(),
+                        last_clicked: new Date().toISOString()
+                    };
+                    break;
+            }
+
+            responseElement.textContent = JSON.stringify(response, null, 2);
+        }
+    </script>
+</body>
+</html>

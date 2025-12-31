@@ -1,0 +1,41 @@
+[data-amplify-authenticator] {
+  --amplify-components-authenticator-router-box-shadow: 0 0 16px var(--amplify-colors-overlay-10);
+  --amplify-components-authenticator-router-border-width: 0;
+  --amplify-components-authenticator-form-padding: var(--amplify-space-medium) var(--amplify-space-xl) var(--amplify-space-xl);
+  --amplify-components-button-primary-background-color: white;
+  --amplify-components-button-primary-color: black;
+  --amplify-components-button-primary-border-color: #d1d5db;
+  --amplify-components-button-primary-hover-background-color: #5345f3;
+  --amplify-components-button-primary-hover-color: white;
+  --amplify-components-fieldcontrol-focus-box-shadow: 0 0 0 2px var(--amplify-colors-purple-60);
+  --amplify-components-tabs-item-active-border-color: #5345f3;
+  --amplify-components-tabs-item-color: var(--amplify-colors-neutral-80);
+  --amplify-components-tabs-item-active-color: #5345f3;
+  --amplify-components-button-link-color: #5345f3;
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+// Style for the last used tag on login buttons
+.last-used-tag {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: #1a73e8;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 500;
+  z-index: 10;
+  white-space: nowrap;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+// Make login buttons container relative for absolute positioning
+[data-amplify-authenticator] [data-amplify-router] {
+  position: relative;
+}

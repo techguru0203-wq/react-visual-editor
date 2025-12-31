@@ -1,0 +1,103 @@
+import { Access } from '@prisma/client';
+import { OrganizationID } from './organizationsData';
+
+export const specialtyData = [
+  {
+    name: 'PRODUCT_MANAGEMENT',
+    displayName: 'Product Management',
+    access: Access.PUBLIC,
+    organizationId: OrganizationID.SuperAdmin,
+    creatorUserId: 'superAdmin',
+  },
+  {
+    name: 'UI_DESIGN',
+    displayName: 'UI Design',
+    access: Access.PUBLIC,
+    organizationId: OrganizationID.SuperAdmin,
+    creatorUserId: 'superAdmin',
+  },
+  {
+    name: 'FRONTEND_ENGINEER',
+    displayName: 'Frontend Engineer',
+    access: Access.PUBLIC,
+    organizationId: OrganizationID.SuperAdmin,
+    creatorUserId: 'superAdmin',
+  },
+  {
+    name: 'BACKEND_ENGINEER',
+    displayName: 'Backend Engineer',
+    access: Access.PUBLIC,
+    organizationId: OrganizationID.SuperAdmin,
+    creatorUserId: 'superAdmin',
+  },
+  {
+    name: 'FULLSTACK_ENGINEER',
+    displayName: 'Fullstack Engineer',
+    access: Access.PUBLIC,
+    organizationId: OrganizationID.SuperAdmin,
+    creatorUserId: 'superAdmin',
+  },
+  {
+    name: 'INFRA_ENGINEER',
+    displayName: 'Infra/DevOps Engineer',
+    access: Access.PUBLIC,
+    organizationId: OrganizationID.SuperAdmin,
+    creatorUserId: 'superAdmin',
+  },
+  {
+    name: 'DATA_ENGINEER',
+    displayName: 'Data Engineer',
+    access: Access.PUBLIC,
+    organizationId: OrganizationID.SuperAdmin,
+    creatorUserId: 'superAdmin',
+  },
+  {
+    name: 'ML_ENGINEER',
+    displayName: 'ML/AI Engineer',
+    access: Access.PUBLIC,
+    organizationId: OrganizationID.SuperAdmin,
+    creatorUserId: 'superAdmin',
+  },
+  {
+    name: 'QA_ENGINEER',
+    displayName: 'QA Engineer',
+    access: Access.PUBLIC,
+    organizationId: OrganizationID.SuperAdmin,
+    creatorUserId: 'superAdmin',
+  },
+  {
+    name: 'RELEASE_ENGINEER',
+    displayName: 'Release Engineer',
+    access: Access.PUBLIC,
+    organizationId: OrganizationID.SuperAdmin,
+    creatorUserId: 'superAdmin',
+  },
+  {
+    name: 'MOBILE_ENGINEER_IOS',
+    displayName: 'Mobile Engineer - iOS',
+    access: Access.PUBLIC,
+    organizationId: OrganizationID.SuperAdmin,
+    creatorUserId: 'superAdmin',
+  },
+  {
+    name: 'MOBILE_ENGINEER_ANDROID',
+    displayName: 'Mobile Engineer - Android',
+    access: Access.PUBLIC,
+    organizationId: OrganizationID.SuperAdmin,
+    creatorUserId: 'superAdmin',
+  },
+  {
+    name: 'MOBILE_ENGINEER_WINDOWS',
+    displayName: 'Mobile Engineer - Windows',
+    access: Access.PUBLIC,
+    organizationId: OrganizationID.SuperAdmin,
+    creatorUserId: 'superAdmin',
+  },
+  {
+    name: 'DATA_SCIENTIST',
+    displayName: 'Data Scientist',
+    access: Access.PUBLIC,
+    organizationId: OrganizationID.SuperAdmin,
+    creatorUserId: 'superAdmin',
+  },
+];

@@ -1,0 +1,18 @@
+As an experienced web developer and designer,your task is to improve the existing web page design (provided by image) by creating a new web page based on the User Request.
+Generate the design using HTML with embedded CSS and Javascript.
+
+Ensure the following:
+Design Consistency: Please make sure the design choices such as color and font are consistent with the existing web page image I provided.
+Fidelity: Please ensure that the new design maintains the fidelity of the existing page by keeping the necessary web elements.
+Layout: Adapt the layout based on the page information to create a visually appealing and user-friendly design.
+Functionality: Ensure that the new design is fully functional and user can interact the web page.
+Flexibility: The web page should be responsive and adapt to different screen sizes.
+Color Contrast: Avoid using white font on light backgrounds to maintain readability.
+If Tailwin css is used, please use this <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">.
+Just return the HTML code with embedded CSS for the new page, do not include any explanation in your response, also do not include any markdown tokens such as "```html".
+The output should not use global variables in the generated javascript code.
+
+## User Request ##
+{{user_request}}
+
+## Page HTML with embedded CSS and Javascript ##

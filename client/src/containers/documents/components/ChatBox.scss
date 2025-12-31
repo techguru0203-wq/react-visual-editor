@@ -1,0 +1,290 @@
+@import 'src/styles/colors.scss';
+
+.editor-title {
+  @media screen and (max-width: 1023px) {
+    padding-left: 30px;
+    padding-top: 1px;
+  }
+}
+
+.user-input-container {
+  margin-top: 8px;
+  background-color: #fff;
+  padding: 5px;
+  border-radius: 10px;
+  border: solid 1px #cccccc;
+  position: relative;
+
+  @media screen and (max-width: 575px) {
+    padding: 2px;
+  }
+}
+
+.file-list-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.documents-list-container {
+  position: absolute;
+  z-index: 3;
+  background-color: #ececec;
+  overflow-y: auto;
+  max-height: 280px;
+  width: 95%;
+  border-radius: 10px;
+  border: 1px solid #cccccc;
+  top: 30px;
+}
+
+.file-item-container {
+  border-radius: 6px;
+  border: solid 1px #eee;
+  background-color: #fff;
+  padding: 10px;
+  font-size: 11px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  max-width: calc(50% - 12px);
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.file-tag {
+  margin: 0 0 5px 5px;
+  font-size: 11px;
+  max-width: 260px;
+
+  >span+.anticon {
+    position: absolute;
+    top: 10px;
+    right: 4px;
+
+    &:hover {
+      color: red;
+    }
+  }
+}
+
+.prd-tag {
+  >span+.anticon {
+    display: none;
+  }
+}
+
+.plus-tag {
+  margin: 0 0 5px 5px;
+  font-size: 14px;
+  max-width: 140px;
+  align-items: center;
+  display: flex;
+
+  .anticon {
+    display: none;
+  }
+}
+
+.file-label {
+  margin-right: 6px;
+  padding: 5px;
+  font-size: 12px;
+  display: flex !important;
+  align-items: center;
+
+  &:hover {
+    color: blue;
+  }
+}
+
+.file-del:hover {
+  cursor: pointer;
+  color: blue;
+}
+
+.ant-upload-wrapper {
+  margin-top: -5px;
+}
+
+.chat-upload-wrapper {
+  width: 100%;
+
+  .ant-upload {
+    width: 100%;
+  }
+
+  .ant-upload-select {
+    width: 100%;
+    display: block;
+  }
+}
+
+.sample-input-container {
+  max-height: 60px;
+  width: 100%;
+  flex-wrap: wrap;
+  overflow: auto;
+  color: $COLOR_GRAY;
+}
+
+.sample-item {
+  border-radius: 6px;
+  border: solid 1px #eee;
+  background-color: #fff;
+  padding: 5px;
+  margin-right: 5px;
+  font-size: 12px;
+  cursor: pointer;
+  color: gray;
+}
+
+.paragraph {
+  color: black;
+}
+
+.paragraph-ai {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.content-ai {
+  background-color: #ececec;
+  padding: 5px;
+  border-radius: 5px;
+  margin-left: 5px;
+  max-width: 80%;
+  min-width: 20px;
+}
+
+.paragraph-human {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.content-human {
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #ccccff;
+  margin-right: 5px;
+  max-width: 80%;
+}
+
+.history-container {
+  overflow-y: auto !important;
+}
+
+.chat-box-input:focus {
+  outline: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+.chat-box-input::placeholder {
+  font-size: 15px;
+}
+
+.chat-popover .ant-btn {
+  padding: 0px 8px;
+  height: 18px;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+@media screen and (max-width: 575px) {
+  .chat-box-input::-webkit-scrollbar {
+    width: 0;
+  }
+}
+
+@media screen and (min-width: 576px) {
+  .chat-submit-btn svg {
+    width: 70px;
+    position: relative;
+    top: 5px;
+  }
+}
+
+.visual-edit-button {
+  background-color: #F5F5F5 !important;
+  border: none !important;
+  border-radius: 6px !important;
+  color: #8B8D97 !important;
+  padding: 4px 8px !important;
+  height: auto !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  transition: all 0.2s ease !important;
+
+  .anticon {
+    color: #8B8D97 !important;
+    font-size: 14px !important;
+  }
+
+  // Active state - purple styling
+  &.visual-edit-button-active {
+    background-color: #F5EBFF !important;
+    color: #5345F3 !important;
+
+    .anticon {
+      color: #5345F3 !important;
+    }
+
+    &:not(:disabled):hover {
+      background-color: #E8D5FF !important;
+      color: #5345F3 !important;
+
+      .anticon {
+        color: #5345F3 !important;
+      }
+    }
+
+    &:not(:disabled):active {
+      background-color: #D9C2FF !important;
+      color: #5345F3 !important;
+
+      .anticon {
+        color: #5345F3 !important;
+      }
+    }
+  }
+
+  // Inactive state - gray styling
+  &:not(.visual-edit-button-active) {
+    &:not(:disabled):hover {
+      background-color: #E8E8E8 !important;
+      color: #595959 !important;
+
+      .anticon {
+        color: #595959 !important;
+      }
+    }
+
+    &:not(:disabled):active {
+      background-color: #D9D9D9 !important;
+      color: #595959 !important;
+
+      .anticon {
+        color: #595959 !important;
+      }
+    }
+  }
+
+  &:disabled {
+    cursor: not-allowed !important;
+    opacity: 0.5 !important;
+    background-color: #F5F5F5 !important;
+    color: #BFBFBF !important;
+
+    .anticon {
+      color: #BFBFBF !important;
+    }
+  }
+}

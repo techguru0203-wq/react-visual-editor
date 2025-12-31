@@ -1,0 +1,27 @@
+.react-multi-email {
+  padding: 4px;
+
+  &.focused {
+    border-color: #5345f3;
+  }
+
+  >input {
+    line-height: 1.25em;
+    height: 30px;
+    font-size: 16px;
+    padding: 5px 10px !important;
+    width: 100% !important;
+  }
+
+  >span[data-placeholder] {
+    height: 32px;
+    line-height: 40px;
+    top: 0;
+    padding: 0;
+    padding-left: 10px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+  }
+}

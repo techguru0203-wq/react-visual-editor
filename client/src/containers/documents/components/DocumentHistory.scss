@@ -1,0 +1,25 @@
+@import 'src/styles/colors.scss';
+
+.anticon-clock-circle {
+  &:hover {
+    color: $COLOR_PRIMARY;
+  }
+}
+
+.app-drawer {
+  .ant-drawer-header {
+    padding: 16px 12px;
+  }
+
+  .ant-drawer-body {
+    padding: 12px;
+  }
+}
+
+.editor-side-bar-container {
+  width: auto !important;
+  max-width: none !important;
+  min-width: 0 !important;
+  flex: 1 !important;
+  height: 100%;
+}

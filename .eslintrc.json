@@ -1,0 +1,45 @@
+{
+  "extends": "airbnb",
+  "parser": "babel-eslint",
+  "plugins": ["simple-import-sort"],
+  "rules": {
+    "simple-import-sort/imports": [
+      "error",
+      {
+        "groups": [
+          // Side effect imports.
+          ["^\\u0000"],
+
+          ["^react$", "^(?!command|common|verity)(@?\\w)"],
+
+          ["^(util|common|verity)"],
+
+          ["components"],
+
+          ["^"],
+          // Relative imports.
+          // Anything that starts with a dot.
+          ["^\\.(?!.*(s?css|styl)$).*$"],
+
+          // Styles
+          ["(s?css|styl)$"]
+        ]
+      }
+    ],
+    "array-bracket-spacing": [2, "always"],
+    "jsx-quotes": [1, "prefer-single"],
+    "jsx-a11y/no-static-element-interactions": 0,
+    "max-len": ["error", { "code": 80, "ignoreTrailingComments": true }],
+    "no-use-before-define": [2, "nofunc"],
+    "no-shadow": 0,
+    "prefer-const": 1,
+    "quote-props": [1, "consistent-as-needed"],
+    "react/no-multi-comp": 0,
+    "react/prop-types": 0,
+    "react/jsx-filename-extension": [1, { "extensions": [".ts", ".tsx"] }],
+    "react/no-array-index-key": 0,
+    "space-before-function-paren": [2, {"anonymous": "always", "named": "never"}],
+    "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
+    "react-hooks/exhaustive-deps": "warn" // Checks effect dependencies
+  }
+}

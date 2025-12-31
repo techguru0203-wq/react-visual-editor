@@ -1,0 +1,353 @@
+@import 'src/styles/colors.scss';
+
+.home-container {
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 50px;
+  flex: 1;
+  // Add relative positioning and z-index to ensure proper layering
+  position: relative;
+  z-index: 1;
+
+  @media screen and (max-width: 1200px) {
+    padding: 0 30px;
+  }
+
+  @media screen and (max-width: 992px) {
+    padding: 0 20px;
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 0 15px;
+  }
+
+  @media screen and (max-width: 576px) {
+    padding: 0 10px;
+  }
+
+  .home-content {
+    // Start from the top instead of centering
+    margin-top: -1%;
+    box-sizing: border-box;
+    padding-top: 0px;
+    max-height: 100%;
+    align-items: center;
+
+    // Responsive adjustments - maintain top positioning
+    @media screen and (max-width: 1440px) {
+      padding-top: 35px;
+    }
+
+    @media screen and (max-width: 1366px) {
+      padding-top: 30px;
+    }
+
+    @media screen and (max-width: 1280px) {
+      padding-top: 25px;
+    }
+
+    @media screen and (max-width: 1200px) {
+      padding-top: 20px;
+    }
+
+    @media screen and (max-width: 992px) {
+      padding-top: 15px;
+    }
+
+    @media screen and (max-width: 768px) {
+      padding-top: 10px;
+    }
+
+    @media screen and (max-width: 576px) {
+      padding-top: 5px;
+    }
+
+    .home-content-main {
+      justify-content: center;
+      align-items: center;
+      padding: 30px 0;
+      max-width: 800px;
+
+      @media screen and (max-width: 1200px) {
+        padding: 25px 0;
+        max-width: 700px;
+      }
+
+      @media screen and (max-width: 992px) {
+        padding: 20px 0;
+        max-width: 600px;
+      }
+
+      @media screen and (max-width: 768px) {
+        padding: 15px 0;
+        max-width: 500px;
+      }
+
+      @media screen and (max-width: 575px) {
+        margin-bottom: 30px;
+        padding: 10px 0;
+        max-width: 400px;
+      }
+    }
+
+    .welcome {
+      font-weight: bold;
+      font-size: 2rem;
+      text-align: center;
+      padding-bottom: 10px;
+
+      span::first-letter {
+        text-transform: capitalize;
+      }
+
+      img {
+        width: 45px;
+        height: 40px;
+        margin-right: 10px;
+        position: relative;
+        top: 6px;
+      }
+
+      @media screen and (max-width: 575px) {
+        font-size: 18px;
+        padding-bottom: 8px;
+
+        img {
+          width: 42px;
+          height: 37px;
+          margin-right: 6px;
+          position: relative;
+          top: 6px;
+        }
+      }
+    }
+
+    .welcome-content {
+      text-align: center;
+      font-size: 20px;
+      font-weight: 700;
+      color: #515151;
+
+      @media screen and (max-width: 575px) {
+        font-size: 16px;
+      }
+    }
+
+    .home-cards {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 28px;
+      padding-top: 15px;
+      padding-bottom: 20px;
+
+      // Reduced padding adjustments to prevent excessive spacing
+      @media screen and (max-width: 1440px) {
+        gap: 24px;
+        padding-top: 18px;
+        padding-bottom: 22px;
+      }
+
+      @media screen and (max-width: 1366px) {
+        gap: 22px;
+        padding-top: 20px;
+        padding-bottom: 24px;
+      }
+
+      @media screen and (max-width: 1280px) {
+        gap: 20px;
+        padding-top: 22px;
+        padding-bottom: 26px;
+      }
+
+      @media screen and (max-width: 1200px) {
+        gap: 18px;
+        padding-top: 25px;
+        padding-bottom: 28px;
+      }
+
+      @media screen and (max-width: 992px) {
+        gap: 16px;
+        padding-top: 30px;
+        padding-bottom: 32px;
+      }
+
+      @media screen and (max-width: 768px) {
+        gap: 12px;
+        padding-top: 25px;
+        padding-bottom: 30px;
+      }
+
+      @media screen and (max-width: 576px) {
+        gap: 8px;
+        padding-top: 20px;
+        padding-bottom: 25px;
+      }
+    }
+
+    .main-cards,
+    .small-cards {
+      flex-wrap: wrap;
+      gap: 18px;
+      align-items: center;
+      justify-content: space-around;
+
+      @media screen and (max-width: 1200px) {
+        gap: 16px;
+      }
+
+      @media screen and (max-width: 992px) {
+        gap: 14px;
+      }
+
+      @media screen and (max-width: 768px) {
+        gap: 12px;
+      }
+
+      @media screen and (max-width: 576px) {
+        gap: 10px;
+      }
+    }
+
+    .small-cards .ant-card-meta-title {
+      font-size: 12px;
+    }
+
+    .home-card {
+      position: relative;
+      border-radius: 20px;
+      background-color: white;
+      flex-direction: column;
+      padding: 10px;
+      justify-content: center;
+      align-items: center;
+      height: 300px;
+
+      @media screen and (max-width: 1279px) {
+        max-width: 600px;
+      }
+
+      @media screen and (max-width: 399px) {
+        padding: 16px;
+        padding-bottom: 40px;
+      }
+
+      .home-card-top {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+      }
+
+      .home-card-title {
+        font-weight: bold;
+        font-size: 18px;
+        margin: 10px 0 16px 0;
+      }
+
+      .home-card-description {
+        font-size: 14px;
+        text-align: center;
+        bottom: 50px;
+        padding: 5px;
+      }
+
+      .home-card-input {
+        width: 100%;
+        margin: 40px 0;
+
+        ::-webkit-input-placeholder {
+          color: gray;
+        }
+
+        :-moz-placeholder {
+          color: gray;
+          opacity: 1;
+        }
+
+        ::-moz-placeholder {
+          color: gray;
+          opacity: 1;
+        }
+
+        :-ms-input-placeholder {
+          color: gray;
+        }
+
+        ::-ms-input-placeholder {
+          color: gray;
+        }
+
+        ::placeholder {
+          color: gray;
+        }
+      }
+
+      .ant-select-selector {
+        border: none;
+        box-shadow: none !important;
+      }
+    }
+
+    .form-input {
+      border: none;
+      border-bottom: solid 1px $COLOR_BORDER_GRAY;
+      width: 100%;
+      border-radius: 0;
+      padding: 0;
+      padding-bottom: 6px;
+
+      &:focus {
+        outline: none !important;
+        box-shadow: none !important;
+      }
+    }
+
+    .project-name {
+      @extend .form-input;
+      width: calc(100% - 200px);
+      margin-right: 10px;
+    }
+
+    .doc-name {
+      @extend .form-input;
+      margin-right: 10px;
+    }
+
+    .project-due-date,
+    .doc-type {
+      @extend .form-input;
+      width: 200px;
+      box-shadow: none;
+    }
+
+    .cancel-button {
+      margin-right: 10px;
+    }
+  }
+
+  .ant-steps-item-title,
+  .ant-input,
+  .ant-picker-input>input {
+    font-size: 16px;
+  }
+
+  .gradient-text {
+    background: linear-gradient(to right, #8b5cf6, #3b82f6);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  // ProjectStep styling - make it non-clickable
+  .project-step {
+    .ant-steps {
+      .ant-steps-item {
+        pointer-events: none !important;
+      }
+
+      .ant-steps-item-title {
+        line-height: inherit !important;
+        color: $COLOR_PRIMARY !important;
+      }
+    }
+  }
+}

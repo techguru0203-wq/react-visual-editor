@@ -1,0 +1,101 @@
+.omniflow-welcome-bg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.omniflow-welcome-container {
+  margin: 0 auto;
+  padding: 32px;
+  // background: rgba(255, 255, 255, 0.95);
+  border-radius: 24px;
+  // box-shadow: 0 0 10px 0 #5345F3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .ant-steps {
+    margin-bottom: 20px;
+  }
+}
+
+.omniflow-welcome-github {
+  background: #426CDA;
+  color: #fff;
+  border-radius: 16px;
+  font-size: 14px;
+  margin-bottom: 24px;
+  padding: 4px 16px;
+  border: none;
+}
+
+.omniflow-welcome-title {
+  color: #23272f !important;
+  font-size: 2.6rem !important;
+  font-weight: 700 !important;
+  text-align: center;
+  margin-bottom: 12px !important;
+}
+
+.omniflow-welcome-subtitle {
+  color: #515151;
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 32px;
+  display: block;
+}
+
+.omniflow-welcome-chatbox {
+  width: 100%;
+  margin-bottom: 18px;
+}
+
+.omniflow-welcome-input {
+  background: #fff !important;
+  color: #23272f !important;
+  border-radius: 12px !important;
+  border: 1px solid #e9e9e9 !important;
+  font-size: 1.1rem;
+  min-height: 56px !important;
+  box-shadow: none !important;
+}
+
+.omniflow-welcome-or {
+  color: #949494;
+  margin: 18px 0 8px 0;
+  font-size: 14px;
+  text-align: center;
+}
+
+.omniflow-welcome-imports {
+  margin-bottom: 18px;
+  button {
+    background: #e9e9e9;
+    color: #23272f;
+    border: none;
+    font-weight: 500;
+    font-size: 15px;
+    &:hover {
+      background: #426CDA;
+      color: #fff;
+    }
+  }
+}
+
+.omniflow-welcome-actions {
+  flex-wrap: wrap;
+  gap: 10px !important;
+  margin-top: 10px;
+  button {
+    background: #fff;
+    color: #23272f;
+    border: 1px solid #e9e9e9;
+    font-size: 14px;
+    margin-bottom: 6px;
+    &:hover {
+      background: #426CDA;
+      color: #fff;
+      border-color: #426CDA;
+    }
+  }
+} 

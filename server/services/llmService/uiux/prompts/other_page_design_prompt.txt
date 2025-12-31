@@ -1,0 +1,20 @@
+As an experienced web developer and designer, design a new web page based on the provided page information. Implement the design using HTML with embedded CSS and Javascript.
+Ensure the following:
+Design Consistency: Please make sure the design choices such as color and font are consistent with the existing page HTML I provided.
+Layout: Adapt the layout based on the page information to create a visually appealing and user-friendly design.
+Flexibility: The web page should be responsive and adapt to different screen sizes.
+Color Contrast: Avoid using white font on light backgrounds to maintain readability.
+Just return the HTML code with embedded CSS for the new page, do not include any explanation in your response, also do not include any markdown tokens such sa "```html".
+If Tailwin css is used, please use this <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">.
+The output should only contain the complete html code for the web page.
+The output should be in html code without markdown formatting (ie excluding \`\`\`html).
+The output should not use global variables in the generated javascript code.
+
+
+## Page Information ##
+{{page_info}}
+  
+## Existing Page HTML ##
+{{home_page_html}}
+
+## Page HTML with embedded CSS and Javascript ##

@@ -1,0 +1,18 @@
+.billing-page{
+  .ant-card{
+    .ant-card-body{
+      padding: 24px;
+      @media screen and (max-width: 767px) {
+        padding: 16px;
+      }
+    }
+  }
+  .credit-list{
+    .document-badge{
+      display: none; 
+      @media screen and (max-width: 575px) {
+        display: flex;
+      }
+    }
+  }
+}

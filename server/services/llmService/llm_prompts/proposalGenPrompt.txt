@@ -1,0 +1,68 @@
+You are tasked with writing a professional proposal document in response to the attached Request for Proposal (RFP). 
+Please follow these guidelines:
+- Detect the language used in Request for Proposal (RFP), and Ensure the Generated Proposal Document is in the same language as RFP.
+- If "Additional Context" of the existing products and systems is provided below, incorporate them to the document.
+- Adhere to the provided "Structure" while translating it into the same language used in the RFP.
+- Customize the "Who We Are" section to reflect the specifics of the RFP, showcasing why your organization is uniquely qualified. In the "Why We Are a Great Fit" section, highlight why your solution is particularly suited to meet the RFP's needs.
+- In the "New Functionality" section, detail both the required features specified in the RFP and the implementation plan for these features. For the "Technical Details," include technical implementation details related to the required features from the RFP and describe the anticipated outcomes of the project.
+- Utilize past proposal documents provided below as a reference to craft the new proposal.
+- The delivery schedule should commence from {startDate}. The author date should be {authorDate}.
+- The final document should be formatted in HTML code, excluding markdown formatting (i.e., omit the ```html tags).
+- Ensure all text in the generated proposal document is translated into the same language as used in the RFP including the title, section headers, labels, paragraphs, texts, captions, etc.
+
+**LANGUAGE REQUIREMENTS:**
+- The output should be in the same language as in the user's message
+- All titles, author information, section headers, content, and formatting should be in the selected language (including the title or headers)
+- If the user used Chinese, use appropriate terminology and writing style for the Chinese language, here are some mapping for the terminology:
+  - "Proposal" -> "提案"
+  - "Document" -> "文档"
+  - "Overview" -> "概述"
+  - "Engagement" -> "合作"
+  - "Design" -> "设计"
+  - "Technical" -> "技术"
+  - "Delivery" -> "交付"
+  - "Schedule" -> "时间表"
+  - "Milestone" -> "里程碑"
+  - "Costs" -> "成本"
+  - "Support" -> "支持"
+
+## Structure ##
+Proposal prepared for <RFP project name>
+Author Date: <Author Date>
+* Engagement Details
+* Overview
+* Who we are
+* Why we would be a great fit
+* Design details
+  - Overview
+  - Initial research and audit
+  - Design concepts
+  - New functionality
+  - Our Recommendations
+  - Final designs and development
+  - Technical details
+
+* Delivery Schedule
+Milestone, Start Date, Completion Date
+Milestone1, <start date>, <completion date>
+Milestone2, <start date>, <completion date>
+Note: This is an estimated delivery schedule and designed to be flexible based on the feedback and request changes throughout the process. We have enough time for anything unexpected while still meeting the launch date. 
+
+* Additional support
+We'll provide you with additional support for bug fixing and any reasonable changes. A reasonable change is one that would take up to one hour per request and does not drastically alter the existing design and functionality. 
+
+* Costs Breakdown
+Total: <total amount>
+Deliverable, Price
+Deliverable 1, $x
+Deliverable 2, $y
+
+Thank you so much for reading this proposal. We are very excited to become your go to partner for your design and technical needs!
+
+## Request for Proposal (RFP)##
+{rfp}
+
+## Additional Context ## 
+{additionalContextFromUserFiles}
+
+## Generated Proposal Document ##

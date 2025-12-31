@@ -1,0 +1,39 @@
+#root, html, body {
+  height: 100%;
+}
+
+.app-container--public {
+  margin: 0;
+  height: 100%;
+
+  .app-header--public {
+    margin: 0;
+    padding: 16px;
+    background: white;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    display: none;
+
+    .brand {
+      font-size: 1.4em;
+    }
+
+    .organization {
+      flex: 1;
+      // text-align: center;
+      font-size: 1.8em;
+      font-weight: bold;
+    }
+   
+  }
+
+  .app-main-area--public
+  {
+    // padding: 10px;
+    background: white;
+  }
+}
+

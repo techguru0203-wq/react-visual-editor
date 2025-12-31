@@ -1,0 +1,63 @@
+# Product Requirements Document
+
+## Problem & Opportunity
+
+Currently, users face significant challenges in extracting relevant information from large volumes of documents. Existing systems lack the capability to efficiently search and generate precise answers from diverse document formats such as PDFs, Word files, and text files. The new web app will fill this gap by allowing users to upload various document types and utilize Retrieval Augmentation Generation (RAG) to search for relevant texts and generate accurate answers along with citations.
+
+## Target Audience & User Persona
+
+The target audience includes researchers, students, legal professionals, and business analysts who frequently need to extract specific information from extensive documents. User personas include:
+
+- **Researcher:** Needs to quickly find and cite relevant information from academic papers.
+- **Student:** Requires efficient ways to gather information for assignments and projects.
+- **Legal Professional:** Needs to extract and reference specific clauses from legal documents.
+- **Business Analyst:** Requires quick access to data and insights from business reports.
+
+## Metrics and Goals
+
+- Reduce the average time taken to find relevant information from documents by 50% within the first 6 months.
+- Achieve a document upload success rate of 99%.
+- Ensure that 90% of generated answers are accurate and relevant as verified by user feedback.
+- Attain a user retention rate of 80% within the first year.
+
+## Use Cases / Features
+- Design a single page application (SPA) for seamless user experience.
+- Document Upload: Allow users to upload PDF, Word, and text files.
+- Question Input: Enable users to input questions related to the uploaded documents.
+- RAG Search: Utilize RAG to search for relevant texts within the documents.
+- Answer Generation: Generate answers based on the relevant texts and provide citations.
+
+## Functional Requirements
+
+- The system should allow users to upload documents in PDF, Word, and text formats.
+- The system should enable users to input questions related to the uploaded documents.
+- The system should utilize RAG to search for relevant texts within the documents.
+- The system should generate answers based on the relevant texts and provide citations.
+- The system should display the generated answers and citations to the user.
+
+## Non-functional Requirements
+
+- The system should process document uploads within 5 seconds.
+- The system should generate answers within 3 seconds after a question is inputted.
+- The system should ensure data security and privacy for uploaded documents.
+- The system should be scalable to handle multiple users simultaneously.
+- The system should have an uptime of 99.9%.
+
+## Epics & User Stories
+
+### Epic 1: Document Upload
+
+- **User Story 1:** As a user, I want to upload PDF documents so that I can get answers from them.
+- **User Story 2:** As a user, I want to upload Word documents so that I can get answers from them.
+- **User Story 3:** As a user, I want to upload text files so that I can get answers from them.
+
+### Epic 2: Question Input and RAG Search
+
+- **User Story 1:** As a user, I want to input questions related to my uploaded documents so that I can find specific information.
+- **User Story 2:** As a user, I want the system to search for relevant texts within my documents using RAG so that I can get accurate answers.
+
+### Epic 3: Answer Generation and Display
+
+- **User Story 1:** As a user, I want the system to generate answers based on the relevant texts so that I can get precise information.
+- **User Story 2:** As a user, I want the system to provide citations for the generated answers so that I can reference them accurately.
+- **User Story 3:** As a user, I want to view the generated answers and citations so that I can use the information effectively.

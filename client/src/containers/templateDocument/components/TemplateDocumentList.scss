@@ -1,0 +1,31 @@
+.template-document-item {
+  height: 200px;
+  padding: 5px;
+  min-width: 300px;
+
+  .ant-card-meta-title {
+    margin-bottom: 0;
+  }
+
+  .ant-card-body {
+    padding: 10px 5px;
+  }
+
+  box-shadow: 0 0 8px 0 #ccc;
+
+  &:hover {
+    box-shadow: 0 0 8px 0 #333;
+  }
+
+  .editor-container, .devplan-tree{
+    background-color: rgba(245, 245, 220, 0.3);
+  }
+}
+
+.template-document-item-active {
+  border-color: #5345F3;
+}
+
+.template-access  {
+  text-transform: capitalize;
+}

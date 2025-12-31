@@ -1,0 +1,58 @@
+{
+  "plugins": ["simple-import-sort", "import"],
+  "rules": {
+    "simple-import-sort/exports": "error",
+    "import/first": "error",
+    "import/newline-after-import": "error",
+    "import/no-duplicates": "error",
+    "simple-import-sort/imports": [
+      "warn",
+      {
+        "groups": [
+          // Side effect imports.
+          ["^\\u0000"],
+
+          ["^react$", "^(?!command|common|verity)(@?\\w)"],
+
+          ["^(util|common|verity)"],
+
+          ["components"],
+
+          ["^"],
+          // Relative imports.
+          // Anything that starts with a dot.
+          ["^\\.(?!.*(s?css|styl)$).*$"],
+
+          // Styles
+          ["(s?css|styl)$"]
+        ]
+      }
+    ],
+    "no-restricted-imports": [
+      "error",
+      {
+        "paths": [
+          {
+            "name": "lodash",
+            "importNames": ["get", "set"],
+            "message": "Please use get and set from common/utils/get-set.ts instead."
+          },
+          {
+            "name": "lodash/get",
+            "message": "Please use get and set from common/utils/get-set.ts instead."
+          },
+          {
+            "name": "lodash/set",
+            "message": "Please use get and set from common/utils/get-set.ts instead."
+          },
+          {
+            "name": "react-redux",
+            "importNames": ["useDispatch"],
+            "message": "Please use useDispatch from common/redux/hooks instead."
+          }
+        ]
+      }
+    ]
+  },
+  "overrides": []
+}

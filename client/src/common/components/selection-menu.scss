@@ -1,0 +1,14 @@
+.editor-context-menu {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  background-color: white;
+  box-shadow: rgba(83, 69, 243, 0.5) 0px 1px 6px 0px;
+  border: 2px solid rgba(83, 69, 243, 0.5);
+  border-radius: 10px;
+  max-height: 100px;
+  max-width: 100px;
+  left: 2px;
+  height: 100%;
+  padding: 0px;
+}

@@ -1,0 +1,19 @@
+1. Design a URL Shortening Service (TinyURL)
+
+URL shortening service allows users to enter a long URL, and then it returns a shorter, unique URL. These services generate a short URL if the user gives a long URL and if the user gives a short URL then it returns the original long URL.
+
+Things to discuss and analyze:
+
+Given a long URL, the service should generate a shorter and unique alias for it.
+When the user hits a short link, the service should redirect to the original link.
+Consider scalability if 1000’s URL shortening requests come every second.
+Service handle redirects.
+Support for custom short URLs.
+Track click stats.
+Delete expired URLs.
+The system should be highly available.
+You need to consider three things while designing this service.
+
+API(REST API) – Discuss how the client will follow an approach to communicate with the service along with the load balancer which is the front end of the service.
+Application Layer – Discuss how the worker thread or hosts that will take the long URL, generate the tiny URL and how it will store both of the URLs in the database.
+Persistence Layer – Database

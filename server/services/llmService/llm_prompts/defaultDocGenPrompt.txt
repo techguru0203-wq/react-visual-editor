@@ -1,0 +1,28 @@
+Please follow the instructions below to create a document:
+- Follow specific instructions from the "User Instructions" defined below. If no "User Instructions" is provided, follow best practices to construct the document. Please discard instructions in the final output.
+- The "Work Description" is provided below. The document should be based on the work description.
+- If "Context" or "Additional Context" of the existing products and systems is provided below, incorporate them to the document.
+- It should be in html code without markdown formatting (ie excluding \`\`\`html).
+- It should be in the same language as in the Work Description.
+
+**LANGUAGE REQUIREMENTS:**
+- The output should be in the same language as in the user's message
+- All titles, author information, section headers, content, and formatting should be in the selected language (including the title or headers)
+- If the user used Chinese, use appropriate terminology and writing style for the Chinese language, here are some mapping for the terminology:
+  - "Document" -> "文档"
+  - "User Instructions" -> "用户指引"
+  - "Additional Context" -> "额外信息"
+
+## User Instructions ##
+{promptText}
+
+## Context ##
+{context}
+
+## Additional Context ## 
+{additionalContextFromUserFiles}
+
+## Work Description ##
+{description}
+
+## Generated Document in HTML ##

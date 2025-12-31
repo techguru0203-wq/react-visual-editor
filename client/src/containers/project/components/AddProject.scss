@@ -1,0 +1,14 @@
+.add-project-form{
+  .ant-form-item-label{
+    padding: 0;
+  }
+  
+  @media screen and (max-width: 575px) {
+    .ant-form-item{
+      margin-bottom: 16px;
+      label{
+        height: 32px !important;
+      }
+    }
+  }
+}

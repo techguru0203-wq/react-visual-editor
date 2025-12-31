@@ -1,0 +1,29 @@
+.env*
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.idea
+.DS_Store
+dump.rdb
+
+tsconfig.tsbuildinfo
+
+client/node_modules
+client/coverage
+client/build/static
+
+server/services/llmService/appGen/output
+server/dev/
+supabase-work-dir
+
+# VS Code Settings Profile
+*.code-profile
+vsCodeSetting.code-profile
+node_modules/
+/temp
+pnpm-lock.yaml

@@ -1,0 +1,26 @@
+$black: #000000;
+
+$blue-400: #426CDA;
+$blue-500: #0373F3;
+$blue-600: #006FFD;
+$blue-700: #0056DD;
+
+$gray-100: #F5F5F5;
+$gray-200: #E9E9E9;
+$gray-300: #E7E7E7;
+$gray-400: #B6B6B6;
+$gray-500: #949494;
+$gray-600: #515151;
+$gray-700: #000000;
+$gray-800: #000000;
+$gray-900: #000000;
+
+$white: #ffffff;
+
+$theme-colors: (
+  "primary": $blue-400,
+);
+
+$border: 1px solid $gray-200;
+
+$mobile-size: 576px;

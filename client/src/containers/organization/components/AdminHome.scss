@@ -1,0 +1,30 @@
+.admin-form {
+  padding-top: 0;
+  // max-width: 700px;
+  width: 100%;
+
+  .existing-profile-row{
+    .ant-col{
+      @media screen and (max-width: 575px) {
+        max-width: 50% !important;
+        text-align: center !important;
+      }
+    }
+  }
+
+  .table-width {
+    width: 80%;
+
+    @media screen and (max-width: 1023px) {
+      width: 90%;
+    }
+
+    @media screen and (max-width: 767px) {
+      width: 100%;
+    }
+  }
+
+  .ant-btn-primary {
+    min-width: 100px;
+  }
+}
