@@ -292,7 +292,7 @@ Deployed app includes inspector script
 - Component files may use props instead of direct text
 
 
-## Usage Instructions
+<!-- ## Usage Instructions
 
 1. **Enable Visual Edit:**
    - Click the pencil icon (Edit) button in ChatBox
@@ -314,7 +314,7 @@ Deployed app includes inspector script
 5. **Close Panel:**
    - Click X button to close panel
    - Visual Edit mode stays enabled
-   - Click Edit button again to disable
+   - Click Edit button again to disable -->
 
 <!-- ## Testing Checklist
 
